@@ -31,7 +31,7 @@ function img_find() {
         var att = document.createAttribute("id");
         att.value = "slideImg";
         list.setAttributeNode(att);
-        document.querySelectorAll('.separator').forEach(e => e.remove());
+        document.querySelectorAll('#gallery .separator').forEach(e => e.remove());
         console.log("building photo-slider");
         imageNodes.forEach(element => list.append(element));
         var target = document.getElementById("photo-slider");
