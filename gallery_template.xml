@@ -54,9 +54,9 @@
   <Variable name="body.background.color" description="Body background color" type="color" default="#fff"  value="#ffffff"/>
   <Variable name="body.text.font" description="Font" type="font" default="$(loraNormal20)"  value="400 20px Lato, sans-serif"/>
   <Variable name="body.text.color" description="Color" type="color" default="#292929"  value="#292929"/>
-  <Variable name="body.link.color" description="Link color" type="color" default="#25a186"  value="#25a186"/>
-  <Variable name="body.link.visited.color" description="Visited link color" type="color" default="$(body.link.color)"  value="#25a186"/>
-  <Variable name="body.link.hover.color" description="Link Hover Color" type="color" default="$(body.link.color)"  value="#25a186"/>
+  <Variable name="body.link.color" description="Link color" type="color" default="#25a186"  value="#9E9E9E"/>
+  <Variable name="body.link.visited.color" description="Visited link color" type="color" default="$(body.link.color)"  value="#9E9E9E"/>
+  <Variable name="body.link.hover.color" description="Link Hover Color" type="color" default="$(body.link.color)"  value="#9E9E9E"/>
   <Variable name="blog.title.font" description="Blog Title Font" type="font" default="$(openSansBold24)"  value="400 24px EB Garamond, serif"/>
   <Variable name="blog.title.color" description="Blog Title Color" type="color" default="#000"  value="#000000"/>
 </Group>
@@ -154,7 +154,7 @@
 
 <Group description="Widths">
   <Variable name="sidebar.width" description="Sidebar width" type="length" min="100px" max="1000px" default="320px"  value="320px"/>
-  <Variable name="feed.width" description="Content width" type="length" min="860px" max="1440px" default="1280px"  value="1280px"/>
+  <Variable name="feed.width" description="Content width" type="length" min="860px" max="1440px" default="1280px"  value="999999px"/>
 </Group>
  */
 
@@ -2967,6 +2967,7 @@ padding: 0 0 0 0 !important;
  all: revert !important;
 }
 
+
       ]]>
     </b:template-skin>
 
@@ -3057,50 +3058,50 @@ padding: 0 0 0 0 !important;
           <div class='post-content container'>
 
 
-              <section id="gallery">
+              <section id='gallery'>
                   <!--item-->
-                  <div class="item">
+                  <div class='item'>
 
 
                       <div class='post-header-container container'>
                           <b:if cond='data:view.isSingleItem                           and data:widgets.Blog.first.allBylineItems.author                           and data:post.author.authorPhoto.image                           and data:widget.type != &quot;PopularPosts&quot;'>
                               <div class='post-author-profile-pic-container'>
-                                  <b:include data='{                                                           image: data:post.author.authorPhoto.image,                                                           imageRatio: &quot;1:1&quot;,                                                           imageSizes: [84, 168],                                                           sourceSizes: &quot;84px&quot;,                                                           imageClass: &quot;post-author-profile-pic&quot;                                                           }' name='responsiveImage' />
+                                  <b:include data='{                                                           image: data:post.author.authorPhoto.image,                                                           imageRatio: &quot;1:1&quot;,                                                           imageSizes: [84, 168],                                                           sourceSizes: &quot;84px&quot;,                                                           imageClass: &quot;post-author-profile-pic&quot;                                                           }' name='responsiveImage'/>
                               </div>
                           </b:if>
-                          <b:include data='post' name='headerByline' />
+                          <b:include data='post' name='headerByline'/>
                       </div>
                       <b:if cond='data:view.isSingleItem and data:widget.type != &quot;PopularPosts&quot;'>
                           <div class='post-body-container gallery'>
 
                               <div class='itemImgArea gallery'>
                                   <!-- image slider -->
-                                  <div class='itemImgSlide' id='photo-slider' />
+                                  <div class='itemImgSlide' id='photo-slider'/>
                               </div>
                               <div class='post-title-container gallery'>
-                                  <div class="itemDetail">
-                                      <div class="itemLeft">
+                                  <div class='itemDetail'>
+                                      <div class='itemLeft'>
                                           <!-- item title -->
-                                          <h2 class="itemTitle"><span lang="en">
-                                                  <b:include data='post' name='postTitle' />
+                                          <h2 class='itemTitle'><span lang='en'>
+                                                  <b:include data='post' name='postTitle'/>
                                               </span></h2>
                                           <!--for-sale-->
                                       </div>
 
                                       <!--description-->
-                                      <div class="itemRight">
-                                          <div class="itemDescription">
-                                              <b:include data='post' name='postBody' />
+                                      <div class='itemRight'>
+                                          <div class='itemDescription'>
+                                              <b:include data='post' name='postBody'/>
                                               <div class='post-sidebar invisible'>
                                                   <b:with value='data:widget.instanceId + &quot;-normalpostsidebar-&quot; + data:post.id' var='sharingId'>
-                                                      <b:include cond='data:post.shareUrl' data='{ shareButtonClass: &quot;post-share-buttons-top&quot;, overridden: true }' name='maybeAddShareButtons' />
+                                                      <b:include cond='data:post.shareUrl' data='{ shareButtonClass: &quot;post-share-buttons-top&quot;, overridden: true }' name='maybeAddShareButtons'/>
                                                   </b:with>
                                                   <b:if cond='data:post.labels and !data:post.labels.empty and data:this.allBylineItems.labels'>
                                                       <div class='post-labels-sidebar'>
                                                           <h3>
-                                                              <data:messages.labels />
+                                                              <data:messages.labels/>
                                                           </h3>
-                                                          <b:include data='post' name='postLabels' />
+                                                          <b:include data='post' name='postLabels'/>
                                                       </div>
                                                   </b:if>
                                               </div>
@@ -3110,12 +3111,12 @@ padding: 0 0 0 0 !important;
                               </div>
                           </div>
 
-                          <b:else />
-                          <b:include cond='data:this.postDisplay.showSnippet ?: true' data='post' name='postBodySnippet' />
+                          <b:else/>
+                          <b:include cond='data:this.postDisplay.showSnippet ?: true' data='post' name='postBodySnippet'/>
                       </b:if>
                   </div>
               </section>
-              <b:include data='post' name='postFooter' />
+              <b:include data='post' name='postFooter'/>
           </div>
               </b:includable>
 
@@ -3926,13 +3927,13 @@ h3.post-title {
             <b:include cond='data:posts.any' data='{                                postDisplay: data:postDisplay,                                post: data:posts.first                              }' name='heroPost'/>
         </b:includable>
                     </b:widget>
-                    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' visible='true'>
+                    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
                       <b:widget-settings>
                         <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-                        <b:widget-setting name='style.textcolor'>#25a186</b:widget-setting>
+                        <b:widget-setting name='style.textcolor'>#9e9e9e</b:widget-setting>
                         <b:widget-setting name='showShareButtons'>false</b:widget-setting>
                         <b:widget-setting name='showCommentLink'>false</b:widget-setting>
-                        <b:widget-setting name='style.urlcolor'>#e5f0ee</b:widget-setting>
+                        <b:widget-setting name='style.urlcolor'>#25a186</b:widget-setting>
                         <b:widget-setting name='showAuthor'>false</b:widget-setting>
                         <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
                         <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
@@ -4719,6 +4720,6 @@ span.s_link:first-of-type {
       </b:section>
     </div>
 
-    <b:template-script async='true' name='rockpool' version='1.0.0'/>
+ <b:template-script async='true' name='rockpool' version='1.0.0'/>   
   </body>
 </html>
