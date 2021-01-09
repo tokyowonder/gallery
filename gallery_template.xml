@@ -2057,7 +2057,7 @@ line-height:inherit;
 margin-right:0
 }
 body.item-view .Blog .post-body::first-line{
-color:$(item.action.color)
+// color:$(item.action.color)
 }
 body.item-view .Blog .post-body-container .post-sidebar{
 $endSide:0;
@@ -2951,6 +2951,22 @@ div.tags {
       body#layout .search {
         display: none;
       }
+
+
+.page_body {
+margin: 0 0;
+max-width: 100%;
+}
+
+.post-body-container {
+margin: 0 0 0 0 !important;
+padding: 0 0 0 0 !important;
+}
+
+.post-title {
+ all: revert !important;
+}
+
       ]]>
     </b:template-skin>
 
@@ -3039,39 +3055,71 @@ div.tags {
             </b:if>
           </b:if>
           <div class='post-content container'>
-            <div class='post-title-container gallery'>
-              <b:include data='post' name='postTitle'/>
-            </div>
-            <div class='post-header-container container'>
-              <b:if cond='data:view.isSingleItem                           and data:widgets.Blog.first.allBylineItems.author                           and data:post.author.authorPhoto.image                           and data:widget.type != &quot;PopularPosts&quot;'>
-                <div class='post-author-profile-pic-container'>
-                  <b:include data='{                                                           image: data:post.author.authorPhoto.image,                                                           imageRatio: &quot;1:1&quot;,                                                           imageSizes: [84, 168],                                                           sourceSizes: &quot;84px&quot;,                                                           imageClass: &quot;post-author-profile-pic&quot;                                                           }' name='responsiveImage'/>
-                </div>
-              </b:if>
-              <b:include data='post' name='headerByline'/>
-            </div>
-            <b:if cond='data:view.isSingleItem and data:widget.type != &quot;PopularPosts&quot;'>
-              <div class='post-body-container gallery'>
-                <b:include data='post' name='postBody'/>
-                <div class='post-sidebar invisible'>
-                  <b:with value='data:widget.instanceId + &quot;-normalpostsidebar-&quot; + data:post.id' var='sharingId'>
-                    <b:include cond='data:post.shareUrl' data='{ shareButtonClass: &quot;post-share-buttons-top&quot;, overridden: true }' name='maybeAddShareButtons'/>
-                  </b:with>
-                  <b:if cond='data:post.labels and !data:post.labels.empty and data:this.allBylineItems.labels'>
-                    <div class='post-labels-sidebar'>
-                      <h3><data:messages.labels/></h3>
-                      <b:include data='post' name='postLabels'/>
-                    </div>
-                  </b:if>
-                </div>
-              </div>
-            <b:else/>
-              <b:include cond='data:this.postDisplay.showSnippet ?: true' data='post' name='postBodySnippet'/>
-            </b:if>
-            <b:include data='post' name='postFooter'/>
+
+
+              <section id="gallery">
+                  <!--item-->
+                  <div class="item">
+
+
+                      <div class='post-header-container container'>
+                          <b:if cond='data:view.isSingleItem                           and data:widgets.Blog.first.allBylineItems.author                           and data:post.author.authorPhoto.image                           and data:widget.type != &quot;PopularPosts&quot;'>
+                              <div class='post-author-profile-pic-container'>
+                                  <b:include data='{                                                           image: data:post.author.authorPhoto.image,                                                           imageRatio: &quot;1:1&quot;,                                                           imageSizes: [84, 168],                                                           sourceSizes: &quot;84px&quot;,                                                           imageClass: &quot;post-author-profile-pic&quot;                                                           }' name='responsiveImage' />
+                              </div>
+                          </b:if>
+                          <b:include data='post' name='headerByline' />
+                      </div>
+                      <b:if cond='data:view.isSingleItem and data:widget.type != &quot;PopularPosts&quot;'>
+                          <div class='post-body-container gallery'>
+
+                              <div class='itemImgArea gallery'>
+                                  <!-- image slider -->
+                                  <div class='itemImgSlide' id='photo-slider' />
+                              </div>
+                              <div class='post-title-container gallery'>
+                                  <div class="itemDetail">
+                                      <div class="itemLeft">
+                                          <!-- item title -->
+                                          <h2 class="itemTitle"><span lang="en">
+                                                  <b:include data='post' name='postTitle' />
+                                              </span></h2>
+                                          <!--for-sale-->
+                                      </div>
+
+                                      <!--description-->
+                                      <div class="itemRight">
+                                          <div class="itemDescription">
+                                              <b:include data='post' name='postBody' />
+                                              <div class='post-sidebar invisible'>
+                                                  <b:with value='data:widget.instanceId + &quot;-normalpostsidebar-&quot; + data:post.id' var='sharingId'>
+                                                      <b:include cond='data:post.shareUrl' data='{ shareButtonClass: &quot;post-share-buttons-top&quot;, overridden: true }' name='maybeAddShareButtons' />
+                                                  </b:with>
+                                                  <b:if cond='data:post.labels and !data:post.labels.empty and data:this.allBylineItems.labels'>
+                                                      <div class='post-labels-sidebar'>
+                                                          <h3>
+                                                              <data:messages.labels />
+                                                          </h3>
+                                                          <b:include data='post' name='postLabels' />
+                                                      </div>
+                                                  </b:if>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <b:else />
+                          <b:include cond='data:this.postDisplay.showSnippet ?: true' data='post' name='postBodySnippet' />
+                      </b:if>
+                  </div>
+              </section>
+              <b:include data='post' name='postFooter' />
           </div>
-        </b:includable>
-        <b:includable id='postTitle' var='post'>
+              </b:includable>
+
+            <b:includable id='postTitle' var='post'>
           <a expr:name='data:post.id'/>
           <b:if cond='data:post.title != &quot;&quot;'>
             <h3 class='post-title entry-title'>
@@ -3360,21 +3408,21 @@ div.tags {
     
     <style>
       <!-- all: revert; -->
-      <!-- kimono gallery --> 
-      div.all-container { background-color: #F5B7B1;}
+      <!-- kimono gallery -->
+      div.all-container { background-color: white;}
       
-      header.centered-top-container { background-color: #F4ECF7;}
-      div.main_header_elements { background-color: #D2B4DE;}
+      header.centered-top-container { background-color: white;}
+      div.main_header_elements { background-color: white;}
       
-      div.page { background-color: #D6EAF8;}
+      div.page { background-color: white;}
       
-      div.post-title-container { background-color: red !important; }
-      div.post-body-container { background-color: pink !important; }
+      div.post-title-container { background-color: white !important; }
+      div.post-body-container { background-color: white !important; }
       
-      aside.sidebar-container { background-color: #D0ECE7;} 
+      aside.sidebar-container { background-color: white;} 
       
-      footer.footer { background-color: #FDEBD0;}
-      
+      footer.footer { background-color: white;}
+
     </style>
     
   </head>
@@ -3685,7 +3733,7 @@ h3.post-title {
                     </div>
                   </button>
                   <b:section id='search_top' name='Search (Top)' showaddelement='false'>
-                    <b:widget id='BlogSearch1' locked='true' title='Search The Glossary' type='BlogSearch' visible='true'>
+                    <b:widget id='BlogSearch1' locked='true' title='Search The Gallery' type='BlogSearch' visible='true'>
                       <b:includable id='main'>
   <b:include name='widget-title'/>
   <b:include name='content'/>
@@ -4233,13 +4281,13 @@ h3.post-title {
                       <b:includable id='postTitle' var='post'>
   <a expr:name='data:post.id'/>
   <b:if cond='data:post.title != &quot;&quot;'>
-    <h3 class='post-title entry-title'>
+    <span class='post-title entry-title'>
       <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
         <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
       <b:else/>
         <data:post.title/>
       </b:if>
-    </h3>
+    </span>
   </b:if>
 </b:includable>
                       <b:includable id='previousPageLink'><!-- Don't show --></b:includable>
