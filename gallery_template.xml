@@ -5,7 +5,6 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
     <b:include data='blog' name='all-head-content'/>
-
     <b:skin version='1.3.0'><![CDATA[/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 /*
 <!-- Constants -->
@@ -53,12 +52,12 @@
 <Group description="Body">
   <Variable name="body.background" description="Background" color="$(body.background.color)" type="background" default="$(color) none repeat scroll top left"  value="$(color) none repeat scroll top left"/>
   <Variable name="body.background.color" description="Body background color" type="color" default="#fff"  value="#ffffff"/>
-  <Variable name="body.text.font" description="Font" type="font" default="$(loraNormal20)"  value="400 20px Lora, serif"/>
+  <Variable name="body.text.font" description="Font" type="font" default="$(loraNormal20)"  value="400 20px Lato, sans-serif"/>
   <Variable name="body.text.color" description="Color" type="color" default="#292929"  value="#292929"/>
   <Variable name="body.link.color" description="Link color" type="color" default="#25a186"  value="#25a186"/>
   <Variable name="body.link.visited.color" description="Visited link color" type="color" default="$(body.link.color)"  value="#25a186"/>
   <Variable name="body.link.hover.color" description="Link Hover Color" type="color" default="$(body.link.color)"  value="#25a186"/>
-  <Variable name="blog.title.font" description="Blog Title Font" type="font" default="$(openSansBold24)"  value="700 24px Open Sans, sans-serif"/>
+  <Variable name="blog.title.font" description="Blog Title Font" type="font" default="$(openSansBold24)"  value="400 24px EB Garamond, serif"/>
   <Variable name="blog.title.color" description="Blog Title Color" type="color" default="#000"  value="#000000"/>
 </Group>
 
@@ -77,26 +76,26 @@
 <Group description="Header" selector=".centered-top-container">
   <Variable name="header.background" description="Header Background" color="$(header.background.color)" type="background" default="$(color) none repeat scroll top left"  value="$(color) none repeat scroll top left"/>
   <Variable name="header.background.color" description="Background color" type="color" default="#fff"  value="#ffffff"/>
-  <Variable name="header.description.font" description="Description font" type="font" default="$(openSansNormal14)"  value="400 14px Open Sans, sans-serif"/>
+  <Variable name="header.description.font" description="Description font" type="font" default="$(openSansNormal14)"  value="400 14px EB Garamond, serif"/>
   <Variable name="header.description.color" description="Description Color" type="color" default="rgba(0,0,0,0.54)"  value="rgba(0,0,0,0.54)"/>
   <Variable name="header.pages.color" description="Page list color" type="color" default="#25a186"  value="#25a186"/>
   <Variable name="header.pages.selected.color" description="Page list color (selected page)" type="color" default="$(header.pages.color)"  value="#25a186"/>
   <Variable name="header.items.color" description="Text color" type="color" default="#25a186"  value="#25a186"/>
-  <Variable name="header.items.font" description="Text font" type="font" default="$(openSansSemibold14)"  value="600 14px Open Sans, sans-serif"/>
+  <Variable name="header.items.font" description="Text font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
 </Group>
 
 <Group description="Search">
-  <Variable name="search.input.font" description="Input font" type="font" default="$(openSansSemibold16)"  value="600 16px Open Sans, sans-serif"/>
+  <Variable name="search.input.font" description="Input font" type="font" default="$(openSansSemibold16)"  value="700 16px Lato, sans-serif"/>
 </Group>
 
 <Group description="Feed" selector=".widget.Blog">
-  <Variable name="feed.title.font" description="Post title font" type="font" default="$(openSansBold36)"  value="700 36px Open Sans, sans-serif"/>
+  <Variable name="feed.title.font" description="Post title font" type="font" default="$(openSansBold36)"  value="400 44px EB Garamond, serif"/>
   <Variable name="feed.title.color" description="Post title color" type="color" default="#25a186"  value="#25a186"/>
-  <Variable name="feed.subtitle.font" description="Post subtitle font" type="font" default="$(openSansSemibold16)"  value="600 16px Open Sans, sans-serif"/>
+  <Variable name="feed.subtitle.font" description="Post subtitle font" type="font" default="$(openSansSemibold16)"  value="700 16px Lato, sans-serif"/>
   <Variable name="feed.subtitle.color" description="Post subtitle color" type="color" default="rgba(0,0,0,0.54)"  value="rgba(0,0,0,0.54)"/>
-  <Variable name="feed.text.font" description="Post text font" type="font" default="$(loraNormal20)"  value="400 20px Lora, serif"/>
+  <Variable name="feed.text.font" description="Post text font" type="font" default="$(loraNormal20)"  value="400 20px Lato, sans-serif"/>
   <Variable name="feed.text.color" description="Post text color" type="color" default="rgba(0,0,0,0.84)"  value="rgba(0,0,0,0.84)"/>
-  <Variable name="feed.button.font" description="Button font" type="font" default="$(openSansSemibold14)"  value="600 14px Open Sans, sans-serif"/>
+  <Variable name="feed.button.font" description="Button font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
   <Variable name="feed.button.color" description="Button color" type="color" default="#25a186"  value="#25a186"/>
 </Group>
 
@@ -115,37 +114,37 @@
 </Group>
 
 <Group description="Dialogs" selector=".subscribe-popup">
-  <Variable name="dialog.title.font" description="Dialog title font" type="font" default="$(openSansBold24)"  value="700 24px Open Sans, sans-serif"/>
+  <Variable name="dialog.title.font" description="Dialog title font" type="font" default="$(openSansBold24)"  value="700 24px Lato, sans-serif"/>
   <Variable name="dialog.title.color" description="Dialog title color" type="color" default="rgba(0,0,0,0.84)"  value="rgba(0,0,0,0.84)"/>
-  <Variable name="dialog.input.font" description="Dialog input font" type="font" default="$(openSansNormal14)"  value="400 14px Open Sans, sans-serif"/>
+  <Variable name="dialog.input.font" description="Dialog input font" type="font" default="$(openSansNormal14)"  value="700 14px Lato, sans-serif"/>
   <Variable name="dialog.input.color" description="Dialog input color" type="color" default="rgba(0,0,0,0.84)"  value="rgba(0,0,0,0.84)"/>
-  <Variable name="dialog.action.font" description="Dialog action font" type="font" default="$(openSansSemibold14)"  value="600 14px Open Sans, sans-serif"/>
+  <Variable name="dialog.action.font" description="Dialog action font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
   <Variable name="dialog.action.color" description="Dialog action color" type="color" default="$(feed.button.color)"  value="#25a186"/>
 </Group>
 
 <Group description="Individual Post or Page" selector="body.item-page .widget.Blog">
-  <Variable name="item.title.font" description="Font" type="font" default="$(openSansSemibold48)"  value="600 48px Open Sans, sans-serif"/>
+  <Variable name="item.title.font" description="Font" type="font" default="$(openSansSemibold48)"  value="400 48px EB Garamond, sans-serif"/>
   <Variable name="item.title.color" description="Post title color" type="color" default="#fff"  value="#ffffff"/>
   <Variable name="item.title.background.color" description="Post title background color" type="color" default="#25a186"  value="#25a186"/>
-  <Variable name="item.subtitle.font" description="Post subtitle font" type="font" default="$(openSansSemibold16)"  value="600 16px Open Sans, sans-serif"/>
+  <Variable name="item.subtitle.font" description="Post subtitle font" type="font" default="$(openSansSemibold16)"  value="700 16px Lato, sans-serif"/>
   <Variable name="item.subtitle.color" description="Post subtitle color" type="color" default="rgba(0,0,0,0.54)"  value="rgba(0,0,0,0.54)"/>
   <Variable name="item.byline.color" description="Post byline color" type="color" default="#25a186"  value="#25a186"/>
   <Variable name="item.byline.font" description="Post byline font" type="font" default="$(openSansSemibold14)"  value="600 14px Open Sans, sans-serif"/>
   <Variable name="item.action.color" description="Action color" type="color" default="#25a186"  value="#25a186"/>
-  <Variable name="item.action.font" description="Action font" type="font" default="$(openSansSemibold14)"  value="600 14px Open Sans, sans-serif"/>
-  <Variable name="item.label.font" description="Label font" type="font" default="$(openSansNormal14)"  value="400 14px Open Sans, sans-serif"/>
-  <Variable name="item.blockquote.font" description="Blockquote font" type="font" default="$(openSansSemiboldItalic44)"  value="italic 600 44px Open Sans, sans-serif"/>
+  <Variable name="item.action.font" description="Action font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
+  <Variable name="item.label.font" description="Label font" type="font" default="$(openSansNormal14)"  value="400 14px Lato, sans-serif"/>
+  <Variable name="item.blockquote.font" description="Blockquote font" type="font" default="$(openSansSemiboldItalic44)"  value="italic 600 44px EB Garamond, serif"/>
 </Group>
 
 <Group description="Sidebar" selector=".sidebar-container">
   <Variable name="sidebar.backgroundColor" description="Background color" type="color" default="$(body.background.color)"  value="#ffffff"/>
   <Variable name="sidebar.icon.color" description="Icon color" type="color" default="#000"  value="#000000"/>
   <Variable name="sidebar.separator.color" description="Separator color" type="color" default="#000"  value="#000000"/>
-  <Variable name="sidebar.widget.title.font" description="Gadget title font" type="font" default="$(openSansNormal16)"  value="400 16px Open Sans, sans-serif"/>
+  <Variable name="sidebar.widget.title.font" description="Gadget title font" type="font" default="$(openSansNormal16)"  value="400 16px Lato, sans-serif"/>
   <Variable name="sidebar.widget.title.color" description="Gadget title color" type="color" default="#000"  value="#000000"/>
   <Variable name="sidebar.profile.title.color" description="Profile name color" type="color" default="#000"  value="#000000"/>
   <Variable name="sidebar.profile.text.color" description="Profile description color" type="color" default="#000"  value="#000000"/>
-  <Variable name="sidebar.profile.link.font" description="Profile link font" type="font" default="$(openSansSemibold16)"  value="600 16px Open Sans, sans-serif"/>
+  <Variable name="sidebar.profile.link.font" description="Profile link font" type="font" default="$(openSansSemibold16)"  value="700 16px Lato, sans-serif"/>
   <Variable name="sidebar.profile.link.color" description="Profile link color" type="color" default="$(body.link.color)"  value="#25a186"/>
 </Group>
 
@@ -2879,7 +2878,55 @@ width:100%
 padding-right:$(sidebar.width)
 }
 }
-]]></b:skin>
+/* custom CSS for Notable theme */
+.heroPost .big-post-text .snippet-item::first-letter {
+    color: inherit;
+    float: inherit;
+    font-weight: inherit;
+    margin-right: inherit;
+}
+.hero-post-noimage-snippet .snippet-item::first-letter {
+    font-size: inherit;
+    line-height: inherit;
+} 
+.post-bottom .byline.post-labels {
+    display: none;
+}
+.post-bottom .byline.post-labels a {
+    color: #ececec;
+    display: none;
+}
+u { text-decoration: none; }
+.post-body u {
+    cursor: pointer;
+}
+hr+br { display: none }
+div.japanese+br { display: none }
+.tags { color: gray }
+body.item-view .Blog .post-body::first-letter{
+float:inherit;
+font-size:inherit;
+font-weight:inherit;
+line-height:inherit;
+margin-$endSide:inherit;
+}
+div.japanese {
+    color: #d67f3f;
+}
+div.tags {
+    color: gray;
+    line-height: 14px;
+    font-size: 16px;
+}
+
+.post-filter-message {
+    display: none;
+}
+
+.blog-pager {
+    margin-bottom: 48px;
+}
+    ]]></b:skin>
 
     <b:template-skin>
       <![CDATA[
@@ -2992,7 +3039,7 @@ padding-right:$(sidebar.width)
             </b:if>
           </b:if>
           <div class='post-content container'>
-            <div class='post-title-container'>
+            <div class='post-title-container gallery'>
               <b:include data='post' name='postTitle'/>
             </div>
             <div class='post-header-container container'>
@@ -3004,7 +3051,7 @@ padding-right:$(sidebar.width)
               <b:include data='post' name='headerByline'/>
             </div>
             <b:if cond='data:view.isSingleItem and data:widget.type != &quot;PopularPosts&quot;'>
-              <div class='post-body-container'>
+              <div class='post-body-container gallery'>
                 <b:include data='post' name='postBody'/>
                 <div class='post-sidebar invisible'>
                   <b:with value='data:widget.instanceId + &quot;-normalpostsidebar-&quot; + data:post.id' var='sharingId'>
@@ -3052,15 +3099,6 @@ padding-right:$(sidebar.width)
             <b:include cond='data:post.snippets' data='post' name='postSnippet'/>
           </div>
         </b:includable>
-        <b:includable id='widgetNotAvailableInPreview'>
-          <b:if cond='data:widget.type == &quot;AdSense&quot;'>
-            <div class='vertical-ad-placeholder'>
-              <span><b:message name='messages.adsGoHere'/></span>
-            </div>
-          <b:else/>
-            <b:include name='super.widgetNotAvailableInPreview'/>
-          </b:if>
-        </b:includable>
       </b:defaultmarkup>
       <b:defaultmarkup type='BlogSearch'>
         <b:includable id='searchSubmit'>
@@ -3076,14 +3114,7 @@ padding-right:$(sidebar.width)
           </b:if>
         </b:includable>
       </b:defaultmarkup>
-      <b:defaultmarkup type='AdSense,Blog'>
-        <b:includable id='defaultAdUnit'>
-          <!-- Clear out style (need non-empty string) -->
-          <b:with value='&quot;/* Done in css. */&quot;' var='style'>
-            <b:include name='super.defaultAdUnit'/>
-          </b:with>
-        </b:includable>
-      </b:defaultmarkup>
+
       <b:defaultmarkup type='PageList'>
         <b:includable id='content'>
           <div class='widget-content'>
@@ -3304,12 +3335,48 @@ padding-right:$(sidebar.width)
       </b:defaultmarkup>
     </b:defaultmarkups>
 
-    <b:if cond='data:widgets.AdSense.any or data:blog.adsenseClientId'>
-      <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
-    </b:if>
     <b:include data='blog' name='google-analytics'/>
 
-    <script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'/>
+    <!-- script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'/-->
+
+    <script src='https://code.jquery.com/jquery-3.5.1.min.js'/>
+    <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/normalize.min.css' rel='stylesheet'/>
+    <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/common.min.css' rel='stylesheet'/>
+
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' rel='stylesheet'/>
+
+    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/common.min.js'/>
+    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/store.min.js'/>
+    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/gallery.min.js'/>
+
+    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/slick.min.js'/>
+    <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/slick.min.css' rel='stylesheet' type='text/css'/>
+    <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/slick-theme.min.css' rel='stylesheet' type='text/css'/>
+
+    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/jquery.fancybox.min.js'/>
+    <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/jquery.fancybox.min.css' rel='stylesheet' type='text/css'/>
+
+    <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/gallery.min.css' rel='stylesheet'/> 
+    
+    <style>
+      <!-- all: revert; -->
+      <!-- kimono gallery --> 
+      div.all-container { background-color: #F5B7B1;}
+      
+      header.centered-top-container { background-color: #F4ECF7;}
+      div.main_header_elements { background-color: #D2B4DE;}
+      
+      div.page { background-color: #D6EAF8;}
+      
+      div.post-title-container { background-color: red !important; }
+      div.post-body-container { background-color: pink !important; }
+      
+      aside.sidebar-container { background-color: #D0ECE7;} 
+      
+      footer.footer { background-color: #FDEBD0;}
+      
+    </style>
+    
   </head>
 
   <body class='container'>
@@ -3333,11 +3400,102 @@ padding-right:$(sidebar.width)
               <!-- Blog name and header -->
               <div class='blog-name'>
                 <b:section id='header' name='Header' showaddelement='false'>
-                  <b:widget id='Header1' locked='true' title='Test Gallery (Header)' type='Header' visible='true'>
+                  <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'>&lt;!-- header --&gt;
+&lt;style&gt;
+@import url(&#39;https://fonts.googleapis.com/css2?family=Roboto+Condensed&amp;display=swap&#39;);
+.logo-art {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+#header h1 {
+  white-space: nowrap;
+}
+
+.logo-type {
+    color: #6d6d6d;
+    font-size: 20px;
+    vertical-align: -2px;
+    text-align: left;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: &#39;Roboto Condensed&#39;;
+    letter-spacing: 0em;
+}
+.blog-title {
+    text-transform: lowercase;
+    vertical-align: 0px;
+    line-height: 1em;
+    font-size: 20px;
+    letter-spacing: 0.12em;
+    font-weight: bold;
+}
+div.header-widget {
+   height: 5px;
+}
+div.header-widget h1 {
+   display: none;
+}
+@media (max-width: 600px) {
+  .logo-type {
+     display: none;
+  }
+ .title-separator {
+     display: none;
+  }
+}
+@media (max-width: 400px) {
+  .logo-art {
+     display: none;
+  }
+  .logo-type {
+     display: none;
+  }
+ .title-separator {
+     display: none;
+  }
+}
+@media (max-width: 340px) {
+  .logo-art {
+     display: block;
+  }
+  .logo-type {
+     display: none;
+  }
+ .title-separator {
+     display: none;
+  }
+ .blog-title {
+     display: none;
+  }
+}
+@media (max-width: 740px) {
+  .category-separator {
+     display: none;
+  }
+  .category-title {
+     display: none;
+  }
+}
+
+&lt;/style&gt;
+
+&lt;h1&gt;&lt;a href=&quot;https://www.kimono.gallery&quot;&gt;&lt;img class=&quot;logo-art&quot; alt=&quot;Tokyo Wonder&quot; height=&quot;40&quot; width =&quot;40&quot; src=&quot;https://1.bp.blogspot.com/-OyDT7qxLcdc/XwALD1SvH8I/AAAAAAAADAE/ylaMpsTn7i8hMOpxnMrzbfk_Ul6iunyCgCK4BGAYYCw/s1600/logo_blog.png&quot; /&gt;&lt;span class=&quot;logo-type notranslate&quot;&gt;Tokyo Wonder&lt;/span&gt;&lt;span class=&quot;title-separator&quot;&gt; &amp;nbsp;|&amp;nbsp; &lt;/span&gt;&lt;span class=&quot;blog-title notranslate&quot;&gt;Kimono&amp;nbsp;Gallery&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+                  </b:widget>
+                  <b:widget id='Header1' locked='true' title='Kimono Gallery (Header)' type='Header' visible='true'>
                     <b:widget-settings>
                       <b:widget-setting name='displayUrl'/>
                       <b:widget-setting name='displayHeight'>0</b:widget-setting>
-                      <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+                      <b:widget-setting name='sectionWidth'>150</b:widget-setting>
                       <b:widget-setting name='useImage'>false</b:widget-setting>
                       <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
                       <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
@@ -3379,6 +3537,106 @@ padding-right:$(sidebar.width)
             <b:include name='super.title'/>
           </div>
         </b:includable>
+                  </b:widget>
+                  <b:widget id='HTML6' locked='false' title='' type='HTML' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'>&lt;!-- Print Layout --&gt;
+&lt;style&gt;
+@media print {
+
+@page {
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+    margin-left: 2cm;
+    margin-right: 2cm;
+}
+
+body {
+  font-family: arial,helvetica,sans;
+  font-size: 13px;
+  background: #fff !important;
+  color:#000 !important;
+}
+
+// Do no underline links
+a, a:visited, a:link {
+  color:#000;
+  text-decoration:none
+}
+
+.page .page_body, .post-body-container, .post-body, #main, #page_body, .Blog, .post-outer, .post-content, .post-title-container, .blog-posts {
+  max-width: 100% ;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+article {
+    margin-top: 0px !important;
+}
+
+.post-title-container, .post-filter-message {
+    background-color: white !important;
+    margin: 0px !important;
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.post-filter-message {
+    color: black !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin-bottom: 40px !important;
+}
+
+.post-filter-message a {
+    display: none !important;
+}
+.post-snippet .snippet-fade {
+    background-color: white !important;
+    background: white !important;
+}
+
+h3.post-title {
+    color: black !important;
+    page-break-before: auto !important;
+    page-break-after: avoid !important;
+}
+
+.post-outer-container {
+    margin-bottom: 60px !important;
+    page-break-before: auto !important;
+    page-break-inside: avoid !important;
+}
+
+.post-body-container, .post-body {
+    background-color: white !important;
+    margin: 0px !important;
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.japanese, .tags, .references {
+    color: black !important!;
+}
+
+.noprint, .header, .tags, .sidebar-container, #footer, header, .post-bottom, .HTML, .comments, .post-header-container, .hamburger-section, .centered-top-placeholder, .snippet-thumbnail, .blog-pager, .FeaturedPost, .feed-message {
+  display:none !important;
+}
+
+}
+&lt;/style&gt;</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
                   </b:widget>
                 </b:section>
               </div> <!-- End blog name and header -->
@@ -3427,7 +3685,7 @@ padding-right:$(sidebar.width)
                     </div>
                   </button>
                   <b:section id='search_top' name='Search (Top)' showaddelement='false'>
-                    <b:widget id='BlogSearch1' locked='true' title='Search This Blog' type='BlogSearch' visible='true'>
+                    <b:widget id='BlogSearch1' locked='true' title='Search The Glossary' type='BlogSearch' visible='true'>
                       <b:includable id='main'>
   <b:include name='widget-title'/>
   <b:include name='content'/>
@@ -3474,7 +3732,7 @@ padding-right:$(sidebar.width)
             <b:section class='centered-top-secondline' id='page_list_top' name='Page List (Top)' showaddelement='false'>
               <b:widget id='PageList1' locked='true' title='' type='PageList' visible='false'>
                 <b:widget-settings>
-                  <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'http://tokyowondergallery.blogspot.com/', 'title': 'Home', 'position': 0}}]]></b:widget-setting>
+                  <b:widget-setting name='pageListJson'>{}</b:widget-setting>
                   <b:widget-setting name='homeTitle'>Home</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
@@ -3551,12 +3809,13 @@ padding-right:$(sidebar.width)
                     </div>
                   </b:if>
                   <b:section class='main' id='page_body' name='Page Body' showaddelement='false'>
-                    <b:widget cond='data:view.isHomepage' id='FeaturedPost1' locked='true' title='' type='FeaturedPost' visible='true'>
+                    <b:widget id='FeaturedPost1' locked='true' title='' type='FeaturedPost' visible='false'>
                       <b:widget-settings>
                         <b:widget-setting name='showSnippet'>true</b:widget-setting>
                         <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+                        <b:widget-setting name='postId'>3454003561436641512</b:widget-setting>
                         <b:widget-setting name='showFirstImage'>true</b:widget-setting>
-                        <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+                        <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
                       </b:widget-settings>
                       <b:includable id='main' var='this'>
   <b:include name='widget-title'/>
@@ -3624,7 +3883,7 @@ padding-right:$(sidebar.width)
                         <b:widget-setting name='showDateHeader'>false</b:widget-setting>
                         <b:widget-setting name='style.textcolor'>#25a186</b:widget-setting>
                         <b:widget-setting name='showShareButtons'>false</b:widget-setting>
-                        <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                        <b:widget-setting name='showCommentLink'>false</b:widget-setting>
                         <b:widget-setting name='style.urlcolor'>#e5f0ee</b:widget-setting>
                         <b:widget-setting name='showAuthor'>false</b:widget-setting>
                         <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
@@ -3635,12 +3894,13 @@ padding-right:$(sidebar.width)
                         <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
                         <b:widget-setting name='style.layout'>1x1</b:widget-setting>
                         <b:widget-setting name='showLabels'>true</b:widget-setting>
-                        <b:widget-setting name='showLocation'>true</b:widget-setting>
-                        <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-                        <b:widget-setting name='postsPerAd'>2</b:widget-setting>
+                        <b:widget-setting name='showLocation'>false</b:widget-setting>
+                        <b:widget-setting name='postLabelsLabel'/>
+                        <b:widget-setting name='showTimestamp'>false</b:widget-setting>
+                        <b:widget-setting name='postsPerAd'>1</b:widget-setting>
                         <b:widget-setting name='showBacklinks'>false</b:widget-setting>
                         <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-                        <b:widget-setting name='showInlineAds'>true</b:widget-setting>
+                        <b:widget-setting name='showInlineAds'>false</b:widget-setting>
                         <b:widget-setting name='showReactions'>false</b:widget-setting>
                       </b:widget-settings>
                       <b:includable id='main' var='this'>
@@ -4045,12 +4305,12 @@ padding-right:$(sidebar.width)
   </section>
 </b:includable>
                     </b:widget>
-                    <b:widget cond='data:view.isSingleItem and data:posts any (p =&gt; p.id != data:view.postId)' id='PopularPosts1' locked='true' title='' type='PopularPosts' visible='true'>
+                    <b:widget cond='data:view.isSingleItem and data:posts any (p =&gt; p.id != data:view.postId)' id='PopularPosts1' locked='true' title='' type='PopularPosts' visible='false'>
                       <b:widget-settings>
                         <b:widget-setting name='numItemsToShow'>3</b:widget-setting>
                         <b:widget-setting name='showThumbnails'>true</b:widget-setting>
                         <b:widget-setting name='showSnippets'>true</b:widget-setting>
-                        <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+                        <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
                       </b:widget-settings>
                       <b:includable id='main' var='this'>
           <!-- Default the title to 'Popular posts from this blog'. -->
@@ -4131,182 +4391,7 @@ padding-right:$(sidebar.width)
             <b:include data='{ button: true, iconClass: &quot;sidebar-back flat-icon-button ripple&quot; }' name='forwardArrowIcon'/>
           </div>
           <b:section class='sidebar' id='sidebar' name='Sidebar' preferred='yes'>
-            <b:widget id='Profile1' locked='false' title='About Me' type='Profile' visible='true'>
-              <b:widget-settings>
-                <b:widget-setting name='showaboutme'>true</b:widget-setting>
-                <b:widget-setting name='showlocation'>false</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main' var='widget'>
-          <div class='wrapper'>
-            <b:class cond='!data:widget.team' name='solo'/>
-            <b:comment>No title for single profiles. Default to &#39;Blog authors&#39; for team.</b:comment>
-            <b:with value='data:messages.blogAuthors' var='defaultTitle'>
-              <b:include name='super.main'/>
-            </b:with>
-          </div>
-        </b:includable>
-              <b:includable id='authorProfileImage'>
-  <img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:authorPhoto.height' expr:src='data:authorPhoto.image' expr:width='data:authorPhoto.width'/>
-</b:includable>
-              <b:includable id='content'>
-  <b:if cond='data:team'>
-    <div class='widget-content team'>
-      <b:include name='teamProfile'/>
-    </div>
-  <b:else/>
-    <div class='widget-content individual'>
-      <b:include name='userProfile'/>
-    </div>
-  </b:if>
-</b:includable>
-              <b:includable id='defaultProfileImage'>
-          <div class='default-avatar-wrapper'>
-            <b:include data='{ iconClass: &quot;avatar-icon&quot; }' name='defaultAvatarIcon'/>
-          </div>
-        </b:includable>
-              <b:includable id='profileImage'>
-  <b:if cond='data:authorPhoto.image'>
-    <b:include name='authorProfileImage'/>
-  <b:else/>
-    <b:include name='defaultProfileImage'/>
-  </b:if>
-</b:includable>
-              <b:includable id='teamProfile'>
-  <ul>
-    <b:loop values='data:authors' var='author'>
-      <li>
-        <div class='team-member'>
-          <b:include data='author' name='teamProfileLink'/>
-        </div>
-      </li>
-    </b:loop>
-  </ul>
-</b:includable>
-              <b:includable id='teamProfileLink'>
-  <a class='profile-link g-profile' expr:href='data:userUrl' rel='nofollow'>
-    <b:include name='profileImage'/>
-    <span class='profile-name'><data:display-name/></span>
-  </a>
-</b:includable>
-              <b:includable id='userGoogleProfile'>
-  <div class='g-follow' data-annotation='bubble' data-height='20' expr:data-href='data:userUrl'/>
-</b:includable>
-              <b:includable id='userLocation'>
-          <dd class='profile-data profile-location'><data:location/></dd>
-        </b:includable>
-              <b:includable id='userProfile'>
-  <b:include name='userProfileImage'/>
-  <b:include name='userProfileInfo'/>
-</b:includable>
-              <b:includable id='userProfileData'>
-  <dt class='profile-data'>
-    <b:include name='userProfileLink'/>
-    <b:include cond='data:hasgoogleprofile' name='userGoogleProfile'/>
-  </dt>
-</b:includable>
-              <b:includable id='userProfileImage'>
-  <a expr:href='data:userUrl' rel='nofollow'>
-    <b:include name='profileImage'/>
-  </a>
-</b:includable>
-              <b:includable id='userProfileInfo'>
-  <div class='profile-info'>
-    <dl class='profile-datablock'>
-      <b:class cond='data:showlocation and data:location != &quot;&quot;' name='has-location'/>
-
-      <b:include name='userProfileData'/>
-      <b:include cond='data:showlocation and data:location != &quot;&quot;' name='userLocation'/>
-      <b:include cond='data:aboutme != &quot;&quot;' name='userProfileText'/>
-    </dl>
-    <b:include name='viewProfileLink'/>
-  </div>
-</b:includable>
-              <b:includable id='userProfileLink'>
-  <a class='profile-link g-profile' expr:href='data:userUrl' rel='author nofollow'>
-    <data:displayname/>
-  </a>
-</b:includable>
-              <b:includable id='userProfileText'>
-          <dd class='profile-textblock profile-snippet snippet-container r-snippet-container'>
-            <div class='snippet-item r-snippetized'>
-              <data:aboutme/>
-            </div>
-            <div class='snippet-fade r-snippet-fade hidden'/>
-          </dd>
-        </b:includable>
-              <b:includable id='viewProfileLink'>
-          <a class='profile-link' expr:href='data:userUrl' rel='author'>
-            <data:messages.visitProfile/>
-          </a>
-        </b:includable>
-            </b:widget>
-            <b:widget id='BlogArchive1' locked='false' title='' type='BlogArchive' visible='true'>
-              <b:widget-settings>
-                <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
-                <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
-                <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
-                <b:widget-setting name='monthPattern'>MMMM yyyy</b:widget-setting>
-                <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
-                <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
-                <b:widget-setting name='chronological'>false</b:widget-setting>
-                <b:widget-setting name='showPosts'>true</b:widget-setting>
-                <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main' var='this'>
-          <details class='collapsible extendable'>
-            <b:attr cond='data:view.isArchive' name='open' value='open'/>
-            <b:with value='true' var='renderAsDetails'>
-            <b:with value='data:messages.archive' var='defaultTitle'>
-              <b:include name='super.main'/>
-            </b:with>
-            </b:with>
-          </details>
-        </b:includable>
-              <b:includable id='content'>
-  <div class='widget-content'>
-    <div id='ArchiveList'>
-      <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
-        <b:include cond='data:this.style == &quot;HIERARCHY&quot;' name='hierarchy'/>
-        <b:include cond='data:this.style in {&quot;FLAT&quot;, &quot;MENU&quot;}' name='flat'/>
-      </div>
-    </div>
-  </div>
-</b:includable>
-              <b:includable id='flat'>
-          <b:include data='{                               buttonClass: &quot;flat-button&quot;,                               items: data:this.data,                               itemSet: &quot;data&quot;,                               itemsMarkup: &quot;super.flat&quot;                             }' name='extendableItems'/>
-        </b:includable>
-              <b:includable id='hierarchy'>
-          <b:include data='{                               buttonClass: &quot;flat-button&quot;,                               limit: 1,                               items: data:this.data,                               itemSet: &quot;data&quot;,                               itemsMarkup: &quot;super.hierarchy&quot;                             }' name='extendableItems'/>
-        </b:includable>
-              <b:includable id='interval' var='intervals'>
-  <ul class='hierarchy'>
-    <b:loop values='data:intervals' var='interval'>
-      <li class='archivedate'>
-        <div class='hierarchy-title'>
-          <a class='post-count-link' expr:href='data:interval.url'>
-            <data:interval.name/>
-            <span class='post-count'><data:interval.post-count/></span>
-          </a>
-        </div>
-        <div class='hierarchy-content'>
-          <b:include cond='data:interval.data' data='interval.data' name='interval'/>
-          <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
-        </div>
-      </li>
-    </b:loop>
-  </ul>
-</b:includable>
-              <b:includable id='posts' var='posts'>
-  <ul class='posts hierarchy'>
-    <b:loop values='data:posts' var='post'>
-      <li>
-        <a expr:href='data:post.url'><data:post.title/></a>
-      </li>
-    </b:loop>
-  </ul>
-</b:includable>
-            </b:widget>
-            <b:widget id='Label1' locked='false' title='Labels' type='Label' visible='true'>
+            <b:widget id='Label1' locked='false' title='Categories' type='Label' visible='true'>
               <b:widget-settings>
                 <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
                 <b:widget-setting name='display'>LIST</b:widget-setting>
@@ -4339,49 +4424,216 @@ padding-right:$(sidebar.width)
           <b:include data='{                               buttonClass: &quot;flat-button&quot;,                               items: data:this.labels,                               itemSet: &quot;labels&quot;,                               itemsMarkup: &quot;super.list&quot;                             }' name='extendableItems'/>
         </b:includable>
             </b:widget>
-            <b:widget id='ReportAbuse1' locked='true' title='' type='ReportAbuse' visible='true'>
+            <b:widget id='ReportAbuse1' locked='true' title='' type='ReportAbuse' visible='false'>
               <b:includable id='main'>
   <b:include name='reportAbuse'/>
 </b:includable>
             </b:widget>
-            <b:widget id='AdSense1' locked='false' title='' type='AdSense' visible='false'>
+            <b:widget id='Translate1' locked='false' title='Translate' type='Translate' visible='false'>
+              <b:widget-settings>
+                <b:widget-setting name='displayMode'>SIMPLE</b:widget-setting>
+              </b:widget-settings>
               <b:includable id='main'>
-  <div class='widget-content'>
-    <b:if cond='data:adCode'>
-      <data:adCode/>
-    <b:else/>
-      <b:include name='defaultAdUnit'/>
-    </b:if>
-  </div>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
 </b:includable>
-              <b:includable id='defaultAdUnit'>
-          <!-- Clear out style (need non-empty string) -->
-          <b:with value='&quot;/* Done in css. */&quot;' var='style'>
-            <b:include name='super.defaultAdUnit'/>
-          </b:with>
-        </b:includable>
+              <b:includable id='content'>
+  <div id='google_translate_element'/>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: &#39;<b:eval expr='data:blog.locale.language ?: &quot;auto&quot;'/>&#39;,
+        autoDisplay: &#39;true&#39;,
+        layout: google.translate.TranslateElement.InlineLayout.<data:layout/>
+      }, &#39;google_translate_element&#39;);
+    }
+  </script>
+  <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'/>
+</b:includable>
             </b:widget>
-            <b:widget id='AdSense2' locked='false' title='' type='AdSense' visible='false'>
+            <b:widget id='HTML1' locked='false' title='' type='HTML' visible='true'>
+              <b:widget-settings>
+                <b:widget-setting name='content'>&lt;!-- UI --&gt;
+&lt;style&gt;
+::selection {
+  background: #d67f3f73; /*#ffb7b7;*/
+}
+.japanese::selection {
+  background: lightgray;
+}
+.sidebar-container .widget+.widget {
+    border-top-style: none;
+}
+.goog-te-gadget-simple {
+    background-color: #ececec;
+}
+div.japanese {
+    color: #d67f3f;
+}
+
+.button {
+    color: #d67f3f;
+}
+
+.post-bottom .byline.post-labels {
+    display: none;
+}
+.post-bottom .byline.post-labels a {
+    color: #ececec;
+    display: none;
+}
+.hashtag {
+    cursor: pointer;
+}
+.tags .hashtag {
+    display: inline-block;
+    background: lightgray;
+    color: gray;
+    padding: 6px;
+    border-radius: 2px;
+    line-height: 14px;
+    font-size: 16px;
+    font-weight: normal;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 4px;
+ }
+
+.tags a {
+    display: inline-block;
+    background: rgba(214,127,63,.12);
+    color: #d67f3f;
+    padding: 6px;
+    border-radius: 2px;
+    line-height: 14px;
+    font-size: 16px;
+    font-weight: normal;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 4px;
+ }
+
+#footer {
+  /* display: flex; */
+}
+
+.blog-name.search-header {
+  display: block !important;
+} 
+#header.section.search-header {
+  visibility: visible;
+  margin-top: 46px;
+} 
+.post-filter-message.search-header {
+  display: none !important;
+} 
+
+.blog-name.search-header h1 img {
+    mix-blend-mode: multiply;
+    filter: grayscale(1);
+}
+
+.separator, .category-separator {
+    color: #5e5c61;
+    font: 400 24px EB Garamond, serif;
+    line-height: 24px;
+}
+.category-title {
+    text-transform: lowercase;
+    vertical-align: 0px;
+    line-height: 1em;
+    font-size: 20px;
+    letter-spacing: 0.12em;
+    font-weight: bold;
+}
+
+&lt;/style&gt;</b:widget-setting>
+              </b:widget-settings>
               <b:includable id='main'>
+  <b:include name='widget-title'/>
   <div class='widget-content'>
-    <b:if cond='data:adCode'>
-      <data:adCode/>
-    <b:else/>
-      <b:include name='defaultAdUnit'/>
-    </b:if>
+    <data:content/>
   </div>
 </b:includable>
-              <b:includable id='defaultAdUnit'>
-          <!-- Clear out style (need non-empty string) -->
-          <b:with value='&quot;/* Done in css. */&quot;' var='style'>
-            <b:include name='super.defaultAdUnit'/>
-          </b:with>
-        </b:includable>
             </b:widget>
           </b:section>
         </aside>
       </div>
       <b:section class='footer' id='footer' name='Footer' showaddelement='false' tag='footer'>
+        <b:widget id='HTML3' locked='false' title='' type='HTML' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'>&lt;!-- footer --&gt;
+&lt;!--link href=&quot;https://use.fontawesome.com/releases/v5.6.1/css/all.css&quot; rel=&quot;stylesheet&quot;--&gt;
+
+&lt;style&gt;
+.Attribution {
+  margin-top: 0px;
+}
+.s_name {
+  margin-left: 4px;
+}
+span.s_link {
+  margin-left: 14px;
+}
+.social { 
+  font-size: 16px; 
+  text-align: center;
+  padding-top: 40px;
+}
+span.s_link {
+  margin-left: 14px;
+}
+span.s_link:first-of-type {
+  margin-left: 0px;
+}
+
+
+.contact {
+  float:left;
+  padding-right: 20px;
+}
+
+.contact::after {
+  content: &quot; &quot;;
+}
+
+@media (max-width: 540px) {
+  .s_name {
+     display: none;
+  }
+}
+
+&lt;/style&gt;
+
+&lt;div class=&quot;social&quot;&gt;
+
+&lt;div class=&quot;contact&quot;&gt;
+&lt;a href=&quot;mailto:hello@tokyowonder.com&quot;&gt;&lt;i class=&quot;s_icon far fa-envelope&quot;&gt;&lt;/i&gt;&amp;nbsp; Contact us&lt;/a&gt;
+&lt;/div&gt;
+							
+&lt;span class=&quot;s_link&quot;&gt;&lt;a href=&quot;https://twitter.com/tokyowondershop&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;s_icon fab fa-twitter&quot;&gt;&lt;/i&gt; &lt;span class=&quot;s_name&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
+
+&lt;span class=&quot;s_link&quot;&gt;&lt;a href=&quot;https://www.youtube.com/channel/UCrWzcMd-kFGoQpo8HqBapXw&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;s_icon fab fa-youtube&quot;&gt;&lt;/i&gt; &lt;span class=&quot;s_name&quot;&gt;YouTube&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;							
+
+&lt;span class=&quot;s_link&quot;&gt;&lt;a href=&quot;http://instagram.com/tokyowonder.store&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;s_icon fab fa-instagram&quot;&gt;&lt;/i&gt; &lt;span class=&quot;s_name&quot;&gt;Instagram&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
+
+&lt;span class=&quot;s_link&quot;&gt;&lt;a href=&quot;https://www.pinterest.jp/tokyo_wonder/&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;s_icon fab fa-pinterest&quot;&gt;&lt;/i&gt; &lt;span class=&quot;s_name&quot;&gt;Pinterest&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
+
+&lt;/div&gt;</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+        </b:widget>
         <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='true'>
           <b:widget-settings>
             <b:widget-setting name='copyright'/>
