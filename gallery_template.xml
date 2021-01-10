@@ -54,7 +54,7 @@
   <Variable name="body.background.color" description="Body background color" type="color" default="#fff"  value="#ffffff"/>
   <Variable name="body.text.font" description="Font" type="font" default="$(loraNormal20)"  value="400 20px Lato, sans-serif"/>
   <Variable name="body.text.color" description="Color" type="color" default="#292929"  value="#292929"/>
-  <Variable name="body.link.color" description="Link color" type="color" default="#25a186"  value="#9E9E9E"/>
+  <Variable name="body.link.color" description="Link color" type="color" default="#696969"  value="#9E9E9E"/>
   <Variable name="body.link.visited.color" description="Visited link color" type="color" default="$(body.link.color)"  value="#9E9E9E"/>
   <Variable name="body.link.hover.color" description="Link Hover Color" type="color" default="$(body.link.color)"  value="#9E9E9E"/>
   <Variable name="blog.title.font" description="Blog Title Font" type="font" default="$(openSansBold24)"  value="400 24px EB Garamond, serif"/>
@@ -62,15 +62,15 @@
 </Group>
 
 <Group description="Featured post" selector=".heroPost">
-  <Variable name="heropost.main.background.color" description="Featured post main background color" type="color" default="#25a186"  value="#25a186"/>
+  <Variable name="heropost.main.background.color" description="Featured post main background color" type="color" default="#696969"  value="#696969"/>
   <Variable name="heropost.main.title.color" description="Featured post main title color" type="color" default="#fff"  value="#ffffff"/>
   <Variable name="heropost.main.text.color" description="Featured post main text color" type="color" default="#fff"  value="#ffffff"/>
   <Variable name="heropost.main.button.color" description="Featured post main buttons color" type="color" default="#fff"  value="#ffffff"/>
   <Variable name="heropost.main.link.color" description="Featured post main link color" type="color" default="#173752"  value="#173752"/>
   <Variable name="heropost.secondary.background.color" description="Featured post background color (secondary)" type="color" default="#e5f0ee"  value="#e5f0ee"/>
   <Variable name="heropost.secondary.text.color" description="Featured post text color (secondary)" type="color" default="#000"  value="#000000"/>
-  <Variable name="heropost.secondary.button.color" description="Featured post buttons color (secondary)" type="color" default="#25a186"  value="#25a186"/>
-  <Variable name="heropost.secondary.dropcap.color" description="Featured post drop cap color (secondary)" type="color" default="$(heropost.secondary.button.color)"  value="#25a186"/>
+  <Variable name="heropost.secondary.button.color" description="Featured post buttons color (secondary)" type="color" default="#696969"  value="#696969"/>
+  <Variable name="heropost.secondary.dropcap.color" description="Featured post drop cap color (secondary)" type="color" default="$(heropost.secondary.button.color)"  value="#696969"/>
 </Group>
 
 <Group description="Header" selector=".centered-top-container">
@@ -78,9 +78,9 @@
   <Variable name="header.background.color" description="Background color" type="color" default="#fff"  value="#ffffff"/>
   <Variable name="header.description.font" description="Description font" type="font" default="$(openSansNormal14)"  value="400 14px EB Garamond, serif"/>
   <Variable name="header.description.color" description="Description Color" type="color" default="rgba(0,0,0,0.54)"  value="rgba(0,0,0,0.54)"/>
-  <Variable name="header.pages.color" description="Page list color" type="color" default="#25a186"  value="#25a186"/>
-  <Variable name="header.pages.selected.color" description="Page list color (selected page)" type="color" default="$(header.pages.color)"  value="#25a186"/>
-  <Variable name="header.items.color" description="Text color" type="color" default="#25a186"  value="#25a186"/>
+  <Variable name="header.pages.color" description="Page list color" type="color" default="#696969"  value="#696969"/>
+  <Variable name="header.pages.selected.color" description="Page list color (selected page)" type="color" default="$(header.pages.color)"  value="#696969"/>
+  <Variable name="header.items.color" description="Text color" type="color" default="#696969"  value="#696969"/>
   <Variable name="header.items.font" description="Text font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
 </Group>
 
@@ -90,13 +90,13 @@
 
 <Group description="Feed" selector=".widget.Blog">
   <Variable name="feed.title.font" description="Post title font" type="font" default="$(openSansBold36)"  value="400 44px EB Garamond, serif"/>
-  <Variable name="feed.title.color" description="Post title color" type="color" default="#25a186"  value="#25a186"/>
+  <Variable name="feed.title.color" description="Post title color" type="color" default="#696969"  value="#696969"/>
   <Variable name="feed.subtitle.font" description="Post subtitle font" type="font" default="$(openSansSemibold16)"  value="700 16px Lato, sans-serif"/>
   <Variable name="feed.subtitle.color" description="Post subtitle color" type="color" default="rgba(0,0,0,0.54)"  value="rgba(0,0,0,0.54)"/>
   <Variable name="feed.text.font" description="Post text font" type="font" default="$(loraNormal20)"  value="400 20px Lato, sans-serif"/>
   <Variable name="feed.text.color" description="Post text color" type="color" default="rgba(0,0,0,0.84)"  value="rgba(0,0,0,0.84)"/>
   <Variable name="feed.button.font" description="Button font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
-  <Variable name="feed.button.color" description="Button color" type="color" default="#25a186"  value="#25a186"/>
+  <Variable name="feed.button.color" description="Button color" type="color" default="#696969"  value="#696969"/>
 </Group>
 
 <Group description="Sharing" selector=".sharing">
@@ -106,11 +106,11 @@
       default="$(body.background.color)"  value="#ffffff"/>
   <Variable name="sharing.text.color" description="Sharing text color"
       type="color"
-      default="$(feed.button.color)"  value="#25a186"/>
+      default="$(feed.button.color)"  value="#696969"/>
   <Variable name="sharing.icons.color"
       description="Sharing icons color"
       type="color"
-      default="$(sharing.text.color)"  value="#25a186"/>
+      default="$(sharing.text.color)"  value="#696969"/>
 </Group>
 
 <Group description="Dialogs" selector=".subscribe-popup">
@@ -119,18 +119,18 @@
   <Variable name="dialog.input.font" description="Dialog input font" type="font" default="$(openSansNormal14)"  value="700 14px Lato, sans-serif"/>
   <Variable name="dialog.input.color" description="Dialog input color" type="color" default="rgba(0,0,0,0.84)"  value="rgba(0,0,0,0.84)"/>
   <Variable name="dialog.action.font" description="Dialog action font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
-  <Variable name="dialog.action.color" description="Dialog action color" type="color" default="$(feed.button.color)"  value="#25a186"/>
+  <Variable name="dialog.action.color" description="Dialog action color" type="color" default="$(feed.button.color)"  value="#696969"/>
 </Group>
 
 <Group description="Individual Post or Page" selector="body.item-page .widget.Blog">
   <Variable name="item.title.font" description="Font" type="font" default="$(openSansSemibold48)"  value="400 48px EB Garamond, sans-serif"/>
   <Variable name="item.title.color" description="Post title color" type="color" default="#fff"  value="#ffffff"/>
-  <Variable name="item.title.background.color" description="Post title background color" type="color" default="#25a186"  value="#25a186"/>
+  <Variable name="item.title.background.color" description="Post title background color" type="color" default="#696969"  value="#696969"/>
   <Variable name="item.subtitle.font" description="Post subtitle font" type="font" default="$(openSansSemibold16)"  value="700 16px Lato, sans-serif"/>
   <Variable name="item.subtitle.color" description="Post subtitle color" type="color" default="rgba(0,0,0,0.54)"  value="rgba(0,0,0,0.54)"/>
-  <Variable name="item.byline.color" description="Post byline color" type="color" default="#25a186"  value="#25a186"/>
+  <Variable name="item.byline.color" description="Post byline color" type="color" default="#696969"  value="#696969"/>
   <Variable name="item.byline.font" description="Post byline font" type="font" default="$(openSansSemibold14)"  value="600 14px Open Sans, sans-serif"/>
-  <Variable name="item.action.color" description="Action color" type="color" default="#25a186"  value="#25a186"/>
+  <Variable name="item.action.color" description="Action color" type="color" default="#696969"  value="#696969"/>
   <Variable name="item.action.font" description="Action font" type="font" default="$(openSansSemibold14)"  value="700 14px Lato, sans-serif"/>
   <Variable name="item.label.font" description="Label font" type="font" default="$(openSansNormal14)"  value="400 14px Lato, sans-serif"/>
   <Variable name="item.blockquote.font" description="Blockquote font" type="font" default="$(openSansSemiboldItalic44)"  value="italic 600 44px EB Garamond, serif"/>
@@ -145,7 +145,7 @@
   <Variable name="sidebar.profile.title.color" description="Profile name color" type="color" default="#000"  value="#000000"/>
   <Variable name="sidebar.profile.text.color" description="Profile description color" type="color" default="#000"  value="#000000"/>
   <Variable name="sidebar.profile.link.font" description="Profile link font" type="font" default="$(openSansSemibold16)"  value="700 16px Lato, sans-serif"/>
-  <Variable name="sidebar.profile.link.color" description="Profile link color" type="color" default="$(body.link.color)"  value="#25a186"/>
+  <Variable name="sidebar.profile.link.color" description="Profile link color" type="color" default="$(body.link.color)"  value="#696969"/>
 </Group>
 
 
@@ -2952,7 +2952,7 @@ div.tags {
         display: none;
       }
 
-
+// layout duct-tape
 .page_body {
 margin: 0 0;
 max-width: 100%;
@@ -2965,6 +2965,38 @@ padding: 0 0 0 0 !important;
 
 .post-title {
  all: revert !important;
+}
+
+// navigation items
+.search, .hamburger-section {
+  display: flex;
+  align-items: center;
+  // justify-content: center; 
+  // text-align: center; 
+}
+
+.search-expand-icon {
+    margin-top: 15px;
+}
+
+.BlogSearch {
+margin-top: 27px;
+}
+
+.main_header_elements {
+overflow: hidden;
+}
+
+header.centered-top-container.sticky.animating .hamburger-menu {
+margin-top: 20px;
+}
+
+header.centered-top-container.sticky.animating .BlogSearch {
+margin-top: 16px;
+}
+
+header.centered-top-container.sticky.animating .search-expand-icon {
+margin-top: 20px;
 }
 
 
@@ -3529,6 +3561,18 @@ div.header-widget h1 {
   }
 }
 
+@media (max-width: 200px) {
+  .category-separator {
+     display: none;
+  }
+  .category-title {
+     display: none;
+  }
+  img.logo-art {
+
+  }
+}
+
 &lt;/style&gt;
 
 &lt;h1&gt;&lt;a href=&quot;https://www.kimono.gallery&quot;&gt;&lt;img class=&quot;logo-art&quot; alt=&quot;Tokyo Wonder&quot; height=&quot;40&quot; width =&quot;40&quot; src=&quot;https://1.bp.blogspot.com/-OyDT7qxLcdc/XwALD1SvH8I/AAAAAAAADAE/ylaMpsTn7i8hMOpxnMrzbfk_Ul6iunyCgCK4BGAYYCw/s1600/logo_blog.png&quot; /&gt;&lt;span class=&quot;logo-type notranslate&quot;&gt;Tokyo Wonder&lt;/span&gt;&lt;span class=&quot;title-separator&quot;&gt; &amp;nbsp;|&amp;nbsp; &lt;/span&gt;&lt;span class=&quot;blog-title notranslate&quot;&gt;Kimono&amp;nbsp;Gallery&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;</b:widget-setting>
@@ -3933,7 +3977,7 @@ h3.post-title {
                         <b:widget-setting name='style.textcolor'>#9e9e9e</b:widget-setting>
                         <b:widget-setting name='showShareButtons'>false</b:widget-setting>
                         <b:widget-setting name='showCommentLink'>false</b:widget-setting>
-                        <b:widget-setting name='style.urlcolor'>#25a186</b:widget-setting>
+                        <b:widget-setting name='style.urlcolor'>#696969</b:widget-setting>
                         <b:widget-setting name='showAuthor'>false</b:widget-setting>
                         <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
                         <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
