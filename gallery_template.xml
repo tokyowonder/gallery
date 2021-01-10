@@ -2952,7 +2952,7 @@ div.tags {
         display: none;
       }
 
-// layout duct-tape
+/* layout duct-tape */
 .page_body {
 margin: 0 0;
 max-width: 100%;
@@ -2967,7 +2967,12 @@ padding: 0 0 0 0 !important;
  all: revert !important;
 }
 
-// navigation items
+.post-sidebar {
+ display: none !important;
+}
+
+/* navigation items */
+
 .search, .hamburger-section {
   display: flex;
   align-items: center;
@@ -2987,8 +2992,9 @@ margin-top: 27px;
 overflow: hidden;
 }
 
+/* sticky header */
 header.centered-top-container.sticky.animating .hamburger-menu {
-margin-top: 20px;
+margin-top: 24px;
 }
 
 header.centered-top-container.sticky.animating .BlogSearch {
