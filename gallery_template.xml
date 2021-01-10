@@ -2971,6 +2971,11 @@ padding: 0 0 0 0 !important;
  display: none !important;
 }
 
+footer {
+width:100% !important;
+}
+
+
 /* navigation items */
 
 .search, .hamburger-section {
@@ -3013,7 +3018,11 @@ margin-top: 16px;
 }
 
 header.centered-top-container.sticky.animating .search-expand-icon {
-margin-top: 20px;
+
+}
+
+header .widget#HTML2 {
+height:40px;
 }
 
 .homepage .post-content {
@@ -3096,7 +3105,7 @@ margin-top: 0px !important;
             <b:if cond='data:post.featuredImage and (data:widget.type != &quot;PopularPosts&quot; or data:this.postDisplay.showFeaturedImage)'>
               <a class='item-thumbnail' expr:href='data:post.url'>
                 <b:if cond='data:post.featuredImage.isResizable'>
-                  <img expr:src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)'/>
+                  <img expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' class='asyncImage' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' />
                   <b:comment>
                   <span class='snippet-thumbnail-img' expr:id='&quot;snippet_thumbnail_id_&quot; + data:post.id'/>
                   <style>
@@ -3489,12 +3498,11 @@ margin-top: 0px !important;
       div.all-container { background-color: white;}
       
       header.centered-top-container { background-color: white;}
-      div.main_header_elements { background-color: white;}
       
-      div.page { background-color: white;}
+      /* div.page { background-color: white;}
       
       div.post-title-container { background-color: white !important; }
-      div.post-body-container { background-color: white !important; }
+      div.post-body-container { background-color: white !important; } */
       
       aside.sidebar-container { background-color: white;} 
       
@@ -4054,7 +4062,7 @@ h3.post-title {
               <b:with value='3' var='maxNumAds'>
               <b:comment>Filter out the featured post, but only on the homepage.</b:comment>
               <b:with value='data:view.isHomepage                                              ? data:posts filter (post =&gt; post.id != data:featuredPostId)                                              : data:posts' var='posts'>
-                <div class='homepage'>
+                <div class='homepage' id='homepage'>
                 <b:comment>Homepage</b:comment>
                 <b:include data='this' name='super.main'/>
                 </div> 
@@ -4735,8 +4743,8 @@ span.s_link:first-of-type {
 
 
 .contact {
-  float:left;
-  padding-right: 20px;
+  /* float:left;
+  padding-right: 20px; */
 }
 
 .contact::after {
@@ -4753,9 +4761,9 @@ span.s_link:first-of-type {
 
 &lt;div class=&quot;social&quot;&gt;
 
-&lt;div class=&quot;contact&quot;&gt;
+&lt;span class=&quot;contact&quot;&gt;
 &lt;a href=&quot;mailto:hello@tokyowonder.com&quot;&gt;&lt;i class=&quot;s_icon far fa-envelope&quot;&gt;&lt;/i&gt;&amp;nbsp; Contact us&lt;/a&gt;
-&lt;/div&gt;
+&lt;/span&gt;
 							
 &lt;span class=&quot;s_link&quot;&gt;&lt;a href=&quot;https://twitter.com/tokyowondershop&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;s_icon fab fa-twitter&quot;&gt;&lt;/i&gt; &lt;span class=&quot;s_name&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
 
