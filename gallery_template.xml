@@ -3016,6 +3016,30 @@ header.centered-top-container.sticky.animating .search-expand-icon {
 margin-top: 20px;
 }
 
+.homepage .post-content {
+display: none;
+}
+
+.widget.Blog {
+padding-left: 0px;
+}
+
+.homepage { /* Masonry container */
+  column-count:         5;
+  column-gap:           0px;
+}
+
+.homepage img { /* Masonry bricks or child elements */
+  width: 100% !important;
+  height: auto !important;
+  display: inline-block;
+  margin: 0 0 0 0;
+}
+
+.homepage .post-outer-container {
+margin-top: 0px !important;
+}
+
 
       ]]>
     </b:template-skin>
@@ -3070,8 +3094,10 @@ margin-top: 20px;
         <b:includable id='normalPost'>
           <b:if cond='(not data:view.isSingleItem or data:widget.type == &quot;PopularPosts&quot;)'>
             <b:if cond='data:post.featuredImage and (data:widget.type != &quot;PopularPosts&quot; or data:this.postDisplay.showFeaturedImage)'>
-              <a class='snippet-thumbnail' expr:href='data:post.url'>
+              <a class='item-thumbnail' expr:href='data:post.url'>
                 <b:if cond='data:post.featuredImage.isResizable'>
+                  <img expr:src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)'/>
+                  <b:comment>
                   <span class='snippet-thumbnail-img' expr:id='&quot;snippet_thumbnail_id_&quot; + data:post.id'/>
                   <style>
                     @media (min-width: 1168px) {
@@ -3095,6 +3121,7 @@ margin-top: 20px;
                       }
                     }
                   </style>
+                  </b:comment>  
                 <b:else/>
                   <img expr:src='data:post.featuredImage'/>
                 </b:if>
@@ -3921,8 +3948,8 @@ h3.post-title {
                   <b:section class='main' id='page_body' name='Page Body' showaddelement='false'>
                     <b:widget id='FeaturedPost1' locked='true' title='' type='FeaturedPost' visible='false'>
                       <b:widget-settings>
-                        <b:widget-setting name='showSnippet'>true</b:widget-setting>
-                        <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+                        <b:widget-setting name='showSnippet'>false</b:widget-setting>
+                        <b:widget-setting name='showPostTitle'>false</b:widget-setting>
                         <b:widget-setting name='postId'>3454003561436641512</b:widget-setting>
                         <b:widget-setting name='showFirstImage'>true</b:widget-setting>
                         <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
@@ -4027,7 +4054,10 @@ h3.post-title {
               <b:with value='3' var='maxNumAds'>
               <b:comment>Filter out the featured post, but only on the homepage.</b:comment>
               <b:with value='data:view.isHomepage                                              ? data:posts filter (post =&gt; post.id != data:featuredPostId)                                              : data:posts' var='posts'>
+                <div class='homepage'>
+                <b:comment>Homepage</b:comment>
                 <b:include data='this' name='super.main'/>
+                </div> 
               </b:with>
               </b:with>
             </b:with>
