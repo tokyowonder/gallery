@@ -1552,10 +1552,10 @@ html[dir=rtl] .hamburger-section{
 order:1
 }
 .search-expand-icon{
-display:none
+/* display:none */
 }
 .search-expand-text{
-display:block
+/* display:block */
 }
 .search-input{
 width:100%
@@ -2980,8 +2980,19 @@ padding: 0 0 0 0 !important;
   // text-align: center; 
 }
 
+@media screen and (max-width: 968px) {
 .search-expand-icon {
-    margin-top: 15px;
+    margin-top: 15px !important;
+}
+}
+
+@media screen and (max-width: 9999px){
+.search-expand-text {
+    display: none !important;
+}
+.search-expand-icon {
+    display: block;
+}
 }
 
 .BlogSearch {
