@@ -91,6 +91,9 @@ $(document).ready(function () {
         },
         'loop': true
     });
+    if (document.body.contains(document.getElementById("homepage"))) {
+        loadHighQualityArt();
+    };
 });
 
 $(document).ready(function () {
