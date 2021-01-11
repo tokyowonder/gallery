@@ -1963,7 +1963,7 @@ text-transform:uppercase
 margin:32px
 }
 body.item-view .Blog .post-title-container{
-background-color:$(item.title.background.color);
+/* background-color:$(item.title.background.color); */
 box-sizing:border-box;
 margin-bottom:-1px;
 padding-bottom:86px;
@@ -2976,6 +2976,10 @@ width:100% !important;
 }
 
 
+#gallery .labels {
+ margin-top: 24px;
+}
+
 /* navigation items */
 
 .search, .hamburger-section {
@@ -3017,8 +3021,12 @@ header.centered-top-container.sticky.animating .BlogSearch {
 margin-top: 16px;
 }
 
-header.centered-top-container.sticky.animating .search-expand-icon {
+header.centered-top-container.sticky .search-expand.touch-icon-button {
+margin-top: 10px;
+}
 
+header.centered-top-container.sticky {
+     padding: 0 24px 24px 24px;
 }
 
 header .widget#HTML2 {
@@ -3148,7 +3156,7 @@ margin-right: 0px !important;
               <a class='item-thumbnail' expr:href='data:post.url'>
                 <b:if cond='data:post.featuredImage.isResizable'>
                   <b:comment>Homepage Images</b:comment>
-                  <div class='img-hover-zoom'><img class='asyncImage' loading='lazy' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)'/></div>             
+                  <div class='img-hover-zoom'><img class='asyncImage' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' loading='lazy'/></div>             
                   <b:comment>
                   <span class='snippet-thumbnail-img' expr:id='&quot;snippet_thumbnail_id_&quot; + data:post.id'/>
                   <style>
@@ -3212,8 +3220,11 @@ margin-right: 0px !important;
                                           <!-- item title -->
                                           <h2 class='itemTitle'><span lang='en'>
                                                   <b:include data='post' name='postTitle'/>
-                                              </span></h2>
-                                          <!--for-sale-->
+                                              </span></h2> 
+                                        
+                                          <div class='labels'><b:include data='post' name='postLabels'/></div>
+                                        
+                                           <!--for-sale-->
                                       </div>
 
                                       <!--description-->
