@@ -3034,14 +3034,14 @@ padding-left: 0px;
 }
 
 .homepage { /* Masonry container */
-  column-count:         5;
-  column-gap:           0px;
+  column-count: 5;
+  column-gap: 0px;
 }
 
 .homepage img { /* Masonry bricks or child elements */
-  width: 100% !important;
+  max-width: 100% !important;
   height: auto !important;
-  display: inline-block;
+  display: block;
   margin: 0 0 0 0;
 }
 
@@ -3049,6 +3049,48 @@ padding-left: 0px;
 margin-top: 0px !important;
 }
 
+.FeaturedPost h3,body.feed-view .blog-posts,body.feed-view .feed-message{
+margin-left: 0px !important;
+margin-right: 0px !important;
+}
+
+
+@media (min-width: 1168px) {
+  .homepage img { max-width: 100% !important; } 
+  .homepage {
+    column-count: 5;
+  }
+}
+@media (min-width: 969px) and (max-width: 1167px) {
+  .homepage img { max-width: 100% !important; } 
+  .homepage {
+    column-count: 5;
+  }
+}
+@media (min-width: 601px) and (max-width: 968px) {
+  .homepage img { max-width: 100% !important; } 
+  .homepage {
+    column-count: 3;
+  }
+}
+@media (max-width: 600px) {
+  .homepage img { max-width: 100% !important; } 
+  .homepage {
+    column-count: 1;
+  }
+}
+
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 1.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.8);
+}
 
       ]]>
     </b:template-skin>
@@ -3105,7 +3147,8 @@ margin-top: 0px !important;
             <b:if cond='data:post.featuredImage and (data:widget.type != &quot;PopularPosts&quot; or data:this.postDisplay.showFeaturedImage)'>
               <a class='item-thumbnail' expr:href='data:post.url'>
                 <b:if cond='data:post.featuredImage.isResizable'>
-                  <img expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' class='asyncImage' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' />
+                  <b:comment>Homepage Images</b:comment>
+                  <div class='img-hover-zoom'><img class='asyncImage' loading='lazy' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)'/></div>             
                   <b:comment>
                   <span class='snippet-thumbnail-img' expr:id='&quot;snippet_thumbnail_id_&quot; + data:post.id'/>
                   <style>
