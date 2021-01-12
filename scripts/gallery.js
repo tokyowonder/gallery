@@ -128,10 +128,15 @@ function createShareButtons() {
  };
 }
 
+var _categories = [];
+
 function formatLabels() {
  if ($('div.labels').length) {
         var labels = document.querySelector('div.labels');
         if (labels.querySelectorAll('a').length > 0) {
+            var _periods = [];
+            var _materials = [];
+            var _techniques = [];
             var label = labels.getElementsByTagName("a");
             for (var i = 0; i < label.length; i++) {
                 var patt = new RegExp(/^([\@\#\$]|(?:\&amp;))([A-Za-z0-9\-]+)$/);
@@ -139,15 +144,21 @@ function formatLabels() {
                 if (patt.test(labelText)) {
                     console.log(label[i].href + " " + label[i].innerHTML);
                     // label[i].innerHTML = labelText.replace(/^([\@\#\$]|(?:\&amp;))([A-Za-z0-9\-]+)$/,"$2");
-                    if (labelText.startsWith('@')) { label[i].innerHTML = labelText.replace(/^(\@)([A-Za-z0-9\-]+)$/,"period: $2"); }
-                    if (labelText.startsWith('&')) { label[i].innerHTML = labelText.replace(/^(\&amp;)([A-Za-z0-9\-]+)$/,"material: $2"); }
-                    if (labelText.startsWith('#')) { label[i].innerHTML = labelText.replace(/^(\#)([A-Za-z0-9\-]+)$/,"technique: $2"); }
+                    if (labelText.startsWith('@')) { _periods.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\@)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
+                    if (labelText.startsWith('&')) { _materials.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\&amp;)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
+                    if (labelText.startsWith('#')) { _techniques.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\#)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
                 } else {
                     // label[i].remove();
-                    label[i].outerHTML = "<div class='hide'>" + label[i].outerHTML + "</div>";
+                    _categories.push(labelText);
                 }
-                labels.classList.remove("hide");
             }
+            _labels = ""
+            if (!_periods.length != true) { _labels = "<div class='label period'>period: " + _periods.join('-') + "</div>"; }
+            if (!_materials.length != true) { _labels = _labels + "<div class='label material'>material: " + _materials.join(', ') + "</div>"; }
+            if (!_techniques.length != true) { _labels = _labels + "<div class='label technique'>technique: " + _techniques.join(', ') + "</div>"; }
+            labels.innerHTML = _labels
+            labels.classList.remove("hide");
+
         }
  };
 }

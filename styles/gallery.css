@@ -179,9 +179,18 @@ body {
 }
 
 #gallery .labels a:link, #gallery .labels a:visited, #gallery .labels a:link:active, #gallery .labels a:visited:active {
+    text-decoration: none;
+    color: var(--gray);
+    display: inline-block;
+}
+
+#gallery .labels .label {
+    font-family: 'Noto Serif CJK JP', 'Times New Roman', 'Times';
+    font-size: 12px;
     color: var(--gray);
     text-decoration: none;
     line-height: 1.2em;
+    display: block;
 }
 
 
