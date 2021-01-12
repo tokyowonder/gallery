@@ -2,6 +2,11 @@ body {
   overflow-x: hidden;
   /* Hide horizontal scrollbar */
 }
+
+#gallery .hide {
+    display: none;
+}
+
 #gallery {
   width: 100%;
   text-size-adjust: 100%;
@@ -164,6 +169,22 @@ body {
   transition: all 0.5s;
   cursor: pointer;
 }
+
+#gallery .labels {
+    margin-top: 24px;
+    height: 4.8em;
+}
+#gallery .labels div.hide {
+    display: none;
+}
+
+#gallery .labels a:link, #gallery .labels a:visited, #gallery .labels a:link:active, #gallery .labels a:visited:active {
+    color: var(--gray);
+    text-decoration: none;
+    line-height: 1.2em;
+}
+
+
 #gallery .imgBox a {
   color: var(--white);
 }
@@ -202,7 +223,7 @@ body {
   justify-content: space-between;
   color: var(--gray);
   padding-bottom: 34px;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 #gallery div.share .text {
   margin-left: 4px;

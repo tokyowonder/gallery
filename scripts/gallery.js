@@ -109,6 +109,7 @@ $(document).ready(function () {
         cssEase: 'ease-out',
         slidesToScroll: 1
     });
+    formatLabels();
 });
 
 
@@ -124,6 +125,30 @@ function createShareButtons() {
     shareSpan = shareSpan.replace(/\{%url%\}/g,url);
     shareSpan = shareSpan.replace(/\{%image%\}/g,image);
     $(shareSpan).appendTo( $( ".itemLeft" ) );
+ };
+}
+
+function formatLabels() {
+ if ($('div.labels').length) {
+        var labels = document.querySelector('div.labels');
+        if (labels.querySelectorAll('a').length > 0) {
+            var label = labels.getElementsByTagName("a");
+            for (var i = 0; i < label.length; i++) {
+                var patt = new RegExp(/^([\@\#\$]|(?:\&amp;))([A-Za-z0-9\-]+)$/);
+                labelText = label[i].innerHTML;
+                if (patt.test(labelText)) {
+                    console.log(label[i].href + " " + label[i].innerHTML);
+                    // label[i].innerHTML = labelText.replace(/^([\@\#\$]|(?:\&amp;))([A-Za-z0-9\-]+)$/,"$2");
+                    if (labelText.startsWith('@')) { label[i].innerHTML = labelText.replace(/^(\@)([A-Za-z0-9\-]+)$/,"period: $2"); }
+                    if (labelText.startsWith('&')) { label[i].innerHTML = labelText.replace(/^(\&amp;)([A-Za-z0-9\-]+)$/,"material: $2"); }
+                    if (labelText.startsWith('#')) { label[i].innerHTML = labelText.replace(/^(\#)([A-Za-z0-9\-]+)$/,"technique: $2"); }
+                } else {
+                    // label[i].remove();
+                    label[i].outerHTML = "<div class='hide'>" + label[i].outerHTML + "</div>";
+                }
+                labels.classList.remove("hide");
+            }
+        }
  };
 }
 
