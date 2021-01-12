@@ -358,3 +358,27 @@ div.fancybox-infobar {
 .fancybox-progress {
   background-color: var(--key-color);
 }
+
+
+.buy {
+    color: var(--gray) !important;
+    border: 1px solid #000000 !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    height: 43px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 0.06em;
+    opacity: 1;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.buy:hover { 
+    background-color: #2C2E2F !important;
+    color: #ffffff !important;
+}
