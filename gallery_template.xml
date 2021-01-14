@@ -3153,10 +3153,10 @@ margin-right: 0px !important;
         <b:includable id='normalPost'>
           <b:if cond='(not data:view.isSingleItem or data:widget.type == &quot;PopularPosts&quot;)'>
             <b:if cond='data:post.featuredImage and (data:widget.type != &quot;PopularPosts&quot; or data:this.postDisplay.showFeaturedImage)'>
-              <a class='item-thumbnail' expr:href='data:post.url'>
+              <a class='item-thumbnail' expr:data-title='data:post.title' expr:href='data:post.url'>
                 <b:if cond='data:post.featuredImage.isResizable'>
-                  <b:comment>Homepage Images</b:comment>
-                  <div class='img-hover-zoom'><img class='asyncImage' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' loading='lazy'/></div>             
+                  <b:comment>***Homepage Images</b:comment>
+                  <div class='img-hover-zoom'><img class='asyncImage' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' loading='lazy'/></div>             
                   <b:comment>
                   <span class='snippet-thumbnail-img' expr:id='&quot;snippet_thumbnail_id_&quot; + data:post.id'/>
                   <style>
@@ -3246,6 +3246,20 @@ margin-right: 0px !important;
                                               </div>
                                           </div>
                                       </div>
+                                    
+                                    <style>
+                                      .post-footer {
+                                          	float: left;
+                                              clear: both;
+                                              width: 100%;
+                                              padding: 0 0 0 5% !important;
+                                      		}
+                                    </style>
+                                    <div class='post-footer'>  
+										<b:comment>****move this to actual blo post footer tags****</b:comment>
+   									</div>
+                                    
+                                    
                                   </div>
                               </div>
                           </div>
@@ -3253,7 +3267,8 @@ margin-right: 0px !important;
                           <b:else/>
                           <b:include cond='data:this.postDisplay.showSnippet ?: true' data='post' name='postBodySnippet'/>
                       </b:if>
-                  </div>
+                  </div>        
+                
               </section>
               <b:include data='post' name='postFooter'/>
           </div>
@@ -3284,7 +3299,9 @@ margin-right: 0px !important;
         </b:includable>
         <b:includable id='normalPostBodySnippet' var='post'>
           <div class='container post-body entry-content' expr:id='&quot;post-snippet-&quot; + data:post.id'>
-            <b:include cond='data:post.snippets' data='post' name='postSnippet'/>
+            <b:comment>***Contents on home and search-result pages***</b:comment>
+            <b:comment><b:include cond='data:post.snippets' data='post' name='postSnippet'/></b:comment>
+            <div class='labels'><b:include data='post' name='postLabels'/></div>
           </div>
         </b:includable>
       </b:defaultmarkup>
@@ -3563,18 +3580,22 @@ margin-right: 0px !important;
       footer.footer { background-color: white;}
 
     </style>
-    
+     
   </head>
 
   <body class='container'>
     <b:class cond='data:view.isPreview' name='preview'/>
-    <b:class cond='data:view.isMultipleItems' name='feed-view'/>
+    <b:class cond='data:view.ifsMultipleItems' name='feed-view'/>
     <b:class cond='data:view.isSingleItem' name='item-view'/>
     <b:class cond='data:view.isArchive' name='archive-view'/>
     <b:class cond='data:view.isLabelSearch' name='label-view'/>
     <b:class cond='data:view.isSearch and !data:view.isLabelSearch' name='search-view'/>
     <b:class name='version-1-3-0'/>
-
+   
+<b:if cond='data:blog.searchLabel'>
+  <b:comment>xxxxxxxxxxx</b:comment>  
+</b:if>
+    
     <b:include name='skipNavigation'/>
 
     <div class='all-container'>
@@ -4873,6 +4894,17 @@ span.s_link:first-of-type {
       </b:section>
     </div>
 
+    
+    
+    
+    <b:comment> Move to external script after test </b:comment>
+    <script>
+    window.onload = function afterWebPageLoad() { 
+
+    } 
+    </script>
+  
+ 
  <b:template-script async='true' name='rockpool' version='1.0.0'/>   
   </body>
 </html>
