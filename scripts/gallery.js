@@ -112,11 +112,14 @@ $(document).ready(function () {
     formatLabels();
 });
 
+$(document).ready(function () {
+    handleCollections();
+});
 
 var share = "<div class='share'><span class='tweet sharelink'><a href='https://twitter.com/share?&amp;text={%description%}&amp;via=tokyowondershop&amp;url={%url%}'><i class='fab fa-twitter'></i><span class='text'>tweet</span></a></span><span class='shareBar'> | </span><span class='facebook sharelink'><a href='https://www.facebook.com/sharer.php?u={%url%}'><i class='fab fa-facebook-f'></i><span class='text'>share</span></a></span><span class='shareBar'> | </span><span class='pin sharelink'><a href='http://pinterest.com/pin/create/button/?url={%url%}&media={%image%}&description={%description%}' class='pin-it-button' count-layout='horizontal'><i class='fab fa-pinterest'></i><span class='text'>pin</span></a></span><span class='shareBar'> | </span><span class='mail sharelink'><a href='mailto:?subject={%description%}&amp;body={%description%}%0A{%url%}' tabindex='0'><i class='far fa-envelope'></i><span class='text'>mail</span></a></span><span class='shareBar'> | </span><span class='link sharelink'><a title='{%url%}' href='javascript:void(0);' onclick='copyLink(this);'><i class='fas fa-share-alt'></i><span class='text'>link</span></a></span></div>";
 
 function createShareButtons() {
- if ($('div.itemLeft').length) {
+ if ($('body.item-view').length && $('div.itemLeft').length) {
     var title = encodeURI(document.querySelector('h2.itemTitle').innerText);
     var url = encodeURI(window.location.href);
     var image = encodeURI(imgSrcs[0]);
@@ -131,7 +134,7 @@ function createShareButtons() {
 var _categories = [];
 
 function formatLabels() {
- if ($('div.labels').length) {
+ if ($('body.item-view').length && $('div.labels').length) {
         var labels = document.querySelector('div.labels');
         if (labels.querySelectorAll('a').length > 0) {
             var _periods = [];
@@ -163,3 +166,51 @@ function formatLabels() {
  };
 }
 
+
+    function handleCollections() { 
+
+      if (window.location.pathname.length == 1) {
+        console.log("homepage");
+        sessionStorage.removeItem("collection");
+        sessionStorage.removeItem("collectionTitle");
+      }
+      
+      if (sessionStorage.getItem("collection") !== null) {
+            console.log(sessionStorage.getItem("collectionTitle"));
+            console.log("Part of collection");
+      }
+      
+      if (window.location.pathname.startsWith('/search')) {
+      
+            sessionStorage.removeItem("collection");
+            sessionStorage.removeItem("collectionTitle");
+       
+            var collection = [];
+            var title
+            if (window.location.href.includes("/label/")) { 
+                title = decodeURI(window.location.href.replace(/^(?:.+\/label\/)([^\/]*)$/,"$1")); 
+            } else {
+                title = decodeURI(window.location.href.replace(/^(?:.+\/search\?q=)([^\/]*)$/,"$1"));
+            }
+      
+            var items = document.querySelectorAll('.homepage article a.item-thumbnail');
+            for (var i = 0; i < items.length; i++) {
+                if (title.startsWith("!") && window.location.href.includes("/label/")) {
+                    items[i].href = items[i].href + "?collection=" + encodeURI(title.substring(1)) + "&item=" + i;
+                } else if (window.location.href.includes("/label/")) {
+                    items[i].href = items[i].href + "?category=" + encodeURI(title) + "&item=" + i;
+                } else {
+                    items[i].href = items[i].href + "?search=" + encodeURI(title) + "&item=" + i;
+                }     
+                console.log(i + ' ' +items[i].href + ' ' + items[i].dataset.title);
+                let item = { "title" : items[i].dataset.title , "url" : items[i].href };
+                collection.push(item);
+            }
+    
+            console.log("collection created");
+            sessionStorage.setItem("collectionTitle", title);
+            sessionStorage.setItem("collection", JSON.stringify(collection));
+      
+      }
+
+    } 
