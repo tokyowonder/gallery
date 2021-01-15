@@ -3552,7 +3552,7 @@ margin-right: 0px !important;
 
     <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/common.min.js'/>
     <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/store.min.js'/>
-    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/gallery.min.js'/>
+    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery@latest/scripts/gallery.min.js'/>
 
     <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/slick.min.js'/>
     <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/slick.min.css' rel='stylesheet' type='text/css'/>
@@ -4899,9 +4899,12 @@ span.s_link:first-of-type {
     
     <b:comment> Move to external script after test </b:comment>
     <script>
+    
     window.onload = function afterWebPageLoad() { 
 
+
     } 
+
     </script>
   
  

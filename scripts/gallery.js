@@ -114,6 +114,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     handleCollections();
+    organizeLabels();
 });
 
 var share = "<div class='share'><span class='tweet sharelink'><a href='https://twitter.com/share?&amp;text={%description%}&amp;via=tokyowondershop&amp;url={%url%}'><i class='fab fa-twitter'></i><span class='text'>tweet</span></a></span><span class='shareBar'> | </span><span class='facebook sharelink'><a href='https://www.facebook.com/sharer.php?u={%url%}'><i class='fab fa-facebook-f'></i><span class='text'>share</span></a></span><span class='shareBar'> | </span><span class='pin sharelink'><a href='http://pinterest.com/pin/create/button/?url={%url%}&media={%image%}&description={%description%}' class='pin-it-button' count-layout='horizontal'><i class='fab fa-pinterest'></i><span class='text'>pin</span></a></span><span class='shareBar'> | </span><span class='mail sharelink'><a href='mailto:?subject={%description%}&amp;body={%description%}%0A{%url%}' tabindex='0'><i class='far fa-envelope'></i><span class='text'>mail</span></a></span><span class='shareBar'> | </span><span class='link sharelink'><a title='{%url%}' href='javascript:void(0);' onclick='copyLink(this);'><i class='fas fa-share-alt'></i><span class='text'>link</span></a></span></div>";
@@ -175,11 +176,7 @@ function formatLabels() {
         sessionStorage.removeItem("collectionTitle");
       }
       
-      if (sessionStorage.getItem("collection") !== null) {
-            console.log(sessionStorage.getItem("collectionTitle"));
-            console.log("Part of collection");
-      }
-      
+     
       if (window.location.pathname.startsWith('/search')) {
       
             sessionStorage.removeItem("collection");
@@ -213,4 +210,70 @@ function formatLabels() {
       
       }
 
+      if (sessionStorage.getItem("collection") !== null) {
+            console.log(sessionStorage.getItem("collectionTitle"));
+            console.log("Part of collection");
+      }
+
+
     } 
+
+
+function organizeLabels() {
+console.log("organizing labels ...");
+ 
+        var labels = document.querySelector('div.list-label-widget-content .first-items');
+        if (labels.querySelectorAll('li').length > 0) {
+            var _periods = [];
+            var _materials = [];
+            var _techniques = [];
+            var _collections = [];
+            var _categories = [];
+            var label = labels.getElementsByTagName("a");
+            for (var i = 0; i < label.length; i++) {
+                var patt = new RegExp(/^([\@\#!]|(?:\+{1,3})|(?:\&amp;))([A-Za-z0-9\- ]+)$/);
+                labelText = label[i].innerHTML;
+                if (patt.test(labelText)) {
+                    // console.log(" " + label[i].innerHTML);
+                    // label[i].innerHTML = labelText.replace(/^([\@\#\$!]|(?:\+{1,3})|(?:\&amp;))([A-Za-z0-9\- ]+)$/,"$2");
+                    if (labelText.startsWith('@')) { _periods.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\@)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
+                    if (labelText.startsWith('&')) { _materials.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\&amp;)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
+                    if (labelText.startsWith('#')) { _techniques.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\#)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
+                    if (labelText.startsWith('!')) { _collections.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(!)([A-Za-z0-9\- ]+)$/,"$2") + "</a>"); }
+                    if (labelText.startsWith('++')) { _categories.push(labelText.replace(/^(?:\+{1,3})([A-Za-z0-9\-]+) ([A-Za-z0-9\-]+)$/,"$2|$1" ) + "<a href='"+ label[i].href + "'>" + labelText.replace(/^(?:\+{1,3})([A-Za-z0-9\-]+) ([A-Za-z0-9\-]+)$/,"$1") + "</a>"); }
+					else if (labelText.startsWith('+')) { _categories.push(labelText.replace(/^(\+{1,3})([A-Za-z0-9\- ]+)$/,"$2") + "<a href='"+ label[i].href + "'>" + labelText.replace(/^(\+{1,3})([A-Za-z0-9\- ]+)$/,"$2") + "</a>"); }
+                } else {
+                    // label[i].remove();
+                    //_labels.push(labelText);
+                }
+            }
+			
+			if ( !_collections.length != true ) { for (const s of _collections) {
+			}}
+			if ( !_categories.length != true ) { 
+				var catList = "<ul>"
+				len = _categories.length;
+				for (i=0; i<len; ++i) {
+					s = _categories[i];
+					if (s.indexOf("|") === -1) {
+						level1 = s.substring(0,s.indexOf("<"));
+						var catList = catList + "<li>" + s.substring(s.indexOf("<")) + "</li>";
+						tmpList = ""
+						for (j=0; j<len; ++j) {
+							t = _categories[j];
+							if (t.startsWith(level1+"|")){
+								level2 = t.substring(t.indexOf("|")+1,t.indexOf("<"));
+								tmpList = tmpList + "<li>" + t.substring(t.indexOf("<")) + "</li>";
+							}
+						}
+						if (tmpList.length > 0) {
+							catList = catList + "<ul>" + tmpList + "</ul>";
+						}
+					}
+				}
+				catList = catList + "</ul>";
+				labels.innerHTML = catList;
+				}
+		}
+
+}
