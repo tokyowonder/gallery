@@ -231,17 +231,17 @@ console.log("organizing labels ...");
             var _categories = [];
             var label = labels.getElementsByTagName("a");
             for (var i = 0; i < label.length; i++) {
-                var patt = new RegExp(/^([\@\#!]|(?:\+{1,3})|(?:\&amp;))([A-Za-z0-9\- ]+)$/);
+                var patt = new RegExp(/^([\@\#!]|(?:\:{1,3})|(?:\&amp;))([A-Za-z0-9\- ]+)$/);
                 labelText = label[i].innerHTML;
                 if (patt.test(labelText)) {
                     // console.log(" " + label[i].innerHTML);
-                    // label[i].innerHTML = labelText.replace(/^([\@\#\$!]|(?:\+{1,3})|(?:\&amp;))([A-Za-z0-9\- ]+)$/,"$2");
+                    // label[i].innerHTML = labelText.replace(/^([\@\#\$!]|(?:\:{1,3})|(?:\&amp;))([A-Za-z0-9\- ]+)$/,"$2");
                     if (labelText.startsWith('@')) { _periods.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\@)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
                     if (labelText.startsWith('&')) { _materials.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\&amp;)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
                     if (labelText.startsWith('#')) { _techniques.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(\#)([A-Za-z0-9\-]+)$/,"$2") + "</a>"); }
                     if (labelText.startsWith('!')) { _collections.push("<a href='"+ label[i].href + "'>" + labelText.replace(/^(!)([A-Za-z0-9\- ]+)$/,"$2") + "</a>"); }
-                    if (labelText.startsWith('++')) { _categories.push(labelText.replace(/^(?:\+{1,3})([A-Za-z0-9\-]+) ([A-Za-z0-9\-]+)$/,"$2|$1" ) + "<a href='"+ label[i].href + "'>" + labelText.replace(/^(?:\+{1,3})([A-Za-z0-9\-]+) ([A-Za-z0-9\-]+)$/,"$1") + "</a>"); }
-					else if (labelText.startsWith('+')) { _categories.push(labelText.replace(/^(\+{1,3})([A-Za-z0-9\- ]+)$/,"$2") + "<a href='"+ label[i].href + "'>" + labelText.replace(/^(\+{1,3})([A-Za-z0-9\- ]+)$/,"$2") + "</a>"); }
+                    if (labelText.startsWith('::')) { _categories.push(labelText.replace(/^(?:\:{1,3})([A-Za-z0-9\-]+) ([A-Za-z0-9\-]+)$/,"$2|$1" ) + "<a href='"+ label[i].href + "'>" + labelText.replace(/^(?:\:{1,3})([A-Za-z0-9\-]+) ([A-Za-z0-9\-]+)$/,"$1") + "</a>"); }
+                    else if (labelText.startsWith(':')) { _categories.push(labelText.replace(/^(\:{1,3})([A-Za-z0-9\- ]+)$/,"$2") + "<a href='"+ label[i].href + "'>" + labelText.replace(/^(\:{1,3})([A-Za-z0-9\- ]+)$/,"$2") + "</a>"); }
                 } else {
                     // label[i].remove();
                     //_labels.push(labelText);
