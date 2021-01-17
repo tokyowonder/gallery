@@ -3062,6 +3062,7 @@ padding-left: 0px;
         div.post-outer {
             width: 100%;
             height: 100%;
+			display: block;
         }
 
         div.img-hover-zoom:hover div.thumbnail-img {
@@ -3088,12 +3089,7 @@ margin-right: 0px !important;
 }
 
 
-@media (min-width: 1168px) and (max-width: 9999px)  {
-  .homepage article {
-	width: 20%;
-	height: 20vw;
-  }
-}
+
 @media (min-width: 969px) and (max-width: 1167px) {
   .homepage article {
 	width: 25%;
@@ -4925,12 +4921,7 @@ span.s_link:first-of-type {
     <script>
     
     window.onload = function afterWebPageLoad() { 
-	  	// prepare categories and collections
-      	// get all labels
-		// .list-label-widget-content .label-name
-        // remove $for_sale
-        // categorize &amp;material #technique @period !collection +major_category -minor_category =sub_category
-        // create new category list major-minor-sub materials periods techniques
+
 
     } 
 
