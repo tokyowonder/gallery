@@ -3042,16 +3042,40 @@ padding-left: 0px;
 }
 
 .homepage { /* Masonry container */
-  column-count: 5;
-  column-gap: 0px;
+  /* column-count: 5;
+  column-gap: 0px; */
+  width: 100%;
 }
 
-.homepage img { /* Masonry bricks or child elements */
-  max-width: 100% !important;
-  height: auto !important;
-  display: block;
-  margin: 0 0 0 0;
+.blog-posts {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: flex-start;
 }
+
+        article { /* Masonry bricks or child elements */
+            /* display: inline-block;
+            font-size: 0; */
+            width: 20%;
+            height: 20vw;
+            /* margin-bottom: -4px; */ /* chewing gum */
+        }
+
+		.post-outer, .img-hover-zoom {
+            max-width: 100%;
+            max-height: 100%;
+			overflow: hidden;
+		}
+
+        article img {
+            max-width: 100%;
+            max-height: 100%;
+			transform: scale(1.03) /* chewing gum */
+        }
+
 
 .homepage .post-outer-container {
 margin-top: 0px !important;
@@ -3063,30 +3087,34 @@ margin-right: 0px !important;
 }
 
 
-@media (min-width: 1168px) {
+ @media (min-width: 1168px) {
   .homepage img { max-width: 100% !important; } 
-  .homepage {
-    column-count: 5;
+  article {
+	width: 20%;
+	height: 20vw;
   }
 }
 @media (min-width: 969px) and (max-width: 1167px) {
   .homepage img { max-width: 100% !important; } 
-  .homepage {
-    column-count: 5;
+  article {
+	width: 25%;
+	height: 25vw;
   }
 }
 @media (min-width: 601px) and (max-width: 968px) {
   .homepage img { max-width: 100% !important; } 
-  .homepage {
-    column-count: 3;
+  article {
+	width: 33.333%;
+	height: 33.333vw;
   }
 }
 @media (max-width: 600px) {
   .homepage img { max-width: 100% !important; } 
-  .homepage {
-    column-count: 1;
+  article {
+	width: 100%;
+	height: 100vw;
   }
-}
+} 
 
 .img-hover-zoom {
   overflow: hidden;
@@ -3156,7 +3184,9 @@ margin-right: 0px !important;
               <a class='item-thumbnail' expr:data-title='data:post.title' expr:href='data:post.url'>
                 <b:if cond='data:post.featuredImage.isResizable'>
                   <b:comment>***Homepage Images</b:comment>
-                  <div class='img-hover-zoom'><img class='asyncImage' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' loading='lazy'/></div>             
+                  &lt;div class=&quot;img-hover-zoom&quot; data-labels=&quot;<b:if cond="data:post.labels"><b:loop values="data:post.labels" var="label"> ,<data:label.name></data:label.name></b:loop></b:if>&quot;&gt;
+                    <img class='asyncImage' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' loading='lazy'/>
+                  &lt;/div&gt;
                   <b:comment>
                   <span class='snippet-thumbnail-img' expr:id='&quot;snippet_thumbnail_id_&quot; + data:post.id'/>
                   <style>
@@ -3191,7 +3221,8 @@ margin-right: 0px !important;
               <div class='snippet-thumbnail thumbnail-empty'/>
             </b:if>
           </b:if>
-          <div class='post-content container'>
+          <b:if cond='(data:view.isSingleItem)'><b:comment> *** post hidden for home/search pages ***</b:comment>
+              <div class='post-content container'>
 
 
               <section id='gallery'>
@@ -3256,7 +3287,7 @@ margin-right: 0px !important;
                                       		}
                                     </style>
                                     <div class='post-footer'>  
-										<b:comment>****move this to actual blo post footer tags****</b:comment>
+										<b:comment>****move this to actual blog post footer tags****</b:comment>
    									</div>
                                     
                                     
@@ -3272,7 +3303,8 @@ margin-right: 0px !important;
               </section>
               <b:include data='post' name='postFooter'/>
           </div>
-              </b:includable>
+          </b:if>
+            </b:includable>
 
             <b:includable id='postTitle' var='post'>
           <a expr:name='data:post.id'/>
@@ -3579,6 +3611,8 @@ margin-right: 0px !important;
       
       footer.footer { background-color: white;}
 
+      /* thumbnail search result styling */
+      
     </style>
      
   </head>
@@ -3593,9 +3627,11 @@ margin-right: 0px !important;
     <b:class name='version-1-3-0'/>
    
 <b:if cond='data:blog.searchLabel'>
-  <b:comment>xxxxxxxxxxx</b:comment>  
+   <b:comment>label results page</b:comment> 
 </b:if>
-    
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+  <b:comment>the homepage</b:comment> 
+</b:if>  
     <b:include name='skipNavigation'/>
 
     <div class='all-container'>
@@ -4901,7 +4937,12 @@ span.s_link:first-of-type {
     <script>
     
     window.onload = function afterWebPageLoad() { 
-
+	  	// prepare categories and collections
+      	// get all labels
+		// .list-label-widget-content .label-name
+        // remove $for_sale
+        // categorize &amp;material #technique @period !collection +major_category -minor_category =sub_category
+        // create new category list major-minor-sub materials periods techniques
 
     } 
 
