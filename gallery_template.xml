@@ -3042,12 +3042,10 @@ padding-left: 0px;
 }
 
 .homepage { /* Masonry container */
-  /* column-count: 5;
-  column-gap: 0px; */
   width: 100%;
 }
 
-.blog-posts {
+.homepage .blog-posts {
     display: flex;
     flex-direction: row;
 
@@ -3056,24 +3054,27 @@ padding-left: 0px;
     align-content: flex-start;
 }
 
-        article { /* Masonry bricks or child elements */
-            /* display: inline-block;
-            font-size: 0; */
+        .homepage article { /* Masonry bricks or child elements */
             width: 20%;
             height: 20vw;
-            /* margin-bottom: -4px; */ /* chewing gum */
         }
 
-		.post-outer, .img-hover-zoom {
-            max-width: 100%;
-            max-height: 100%;
-			overflow: hidden;
-		}
+        div.post-outer {
+            width: 100%;
+            height: 100%;
+        }
 
-        article img {
-            max-width: 100%;
-            max-height: 100%;
-			transform: scale(1.03) /* chewing gum */
+        div.img-hover-zoom:hover div.thumbnail-img {
+            transform: scale(2.5);
+
+        }
+        div.thumbnail-img {
+            transition: all 1s;
+        }
+        div.img-hover-zoom, div.thumbnail-img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
 
@@ -3087,46 +3088,32 @@ margin-right: 0px !important;
 }
 
 
- @media (min-width: 1168px) {
-  .homepage img { max-width: 100% !important; } 
-  article {
+@media (min-width: 1168px) and (max-width: 9999px)  {
+  .homepage article {
 	width: 20%;
 	height: 20vw;
   }
 }
 @media (min-width: 969px) and (max-width: 1167px) {
-  .homepage img { max-width: 100% !important; } 
-  article {
+  .homepage article {
 	width: 25%;
 	height: 25vw;
   }
 }
 @media (min-width: 601px) and (max-width: 968px) {
-  .homepage img { max-width: 100% !important; } 
-  article {
+  .homepage article {
 	width: 33.333%;
 	height: 33.333vw;
   }
 }
 @media (max-width: 600px) {
-  .homepage img { max-width: 100% !important; } 
-  article {
+  .homepage article {
 	width: 100%;
 	height: 100vw;
   }
 } 
 
-.img-hover-zoom {
-  overflow: hidden;
-}
 
-.img-hover-zoom img {
-  transition: transform 1.5s ease;
-}
-
-.img-hover-zoom:hover img {
-  transform: scale(1.8);
-}
 
       ]]>
     </b:template-skin>
@@ -3184,8 +3171,9 @@ margin-right: 0px !important;
               <a class='item-thumbnail' expr:data-title='data:post.title' expr:href='data:post.url'>
                 <b:if cond='data:post.featuredImage.isResizable'>
                   <b:comment>***Homepage Images</b:comment>
-                  &lt;div class=&quot;img-hover-zoom&quot; data-labels=&quot;<b:if cond="data:post.labels"><b:loop values="data:post.labels" var="label"> ,<data:label.name></data:label.name></b:loop></b:if>&quot;&gt;
-                    <img class='asyncImage' expr:alt='data:post.title' expr:data-src='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)' expr:src='resizeImage(data:post.featuredImage, 500, &quot;1:1&quot;)' loading='lazy'/>
+                  &lt;div class=&quot;img-hover-zoom&quot; data-labels=&quot;<b:if cond='data:post.labels'><b:loop values='data:post.labels' var='label'> ,<data:label.name/></b:loop></b:if>&quot;&gt;
+                      &lt;div class=&quot;thumbnail-img&quot; data-title=&quot;<data:post.title/>&quot; style=&quot;background-image: url(<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)'/>);background-size: 100% 100%;&quot; loading=&quot;lazy&quot;&gt;
+                      &lt;/div&gt;
                   &lt;/div&gt;
                   <b:comment>
                   <span class='snippet-thumbnail-img' expr:id='&quot;snippet_thumbnail_id_&quot; + data:post.id'/>
