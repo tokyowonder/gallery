@@ -3055,8 +3055,8 @@ padding-left: 0px;
 }
 
         .homepage article { /* Masonry bricks or child elements */
-            width: 20%;
-            height: 20vw;
+            width: 16.666%;
+            height: 16.666vw;
         }
 
         div.post-outer {
@@ -3088,6 +3088,13 @@ margin-left: 0px !important;
 margin-right: 0px !important;
 }
 
+
+@media (min-width: 1168px) and (max-width: 1400px) {
+  .homepage article {
+	width: 20%;
+	height: 20vw;
+  }
+}
 
 
 @media (min-width: 969px) and (max-width: 1167px) {

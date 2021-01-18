@@ -19,7 +19,7 @@ document.onreadystatechange = function () {
         } else {
             $(this).addClass("show");
         }
-        // $('.level2').slideUp();
+        $('.level2').slideUp();
         $(this).find('ul').slideToggle();
     });
 }
@@ -315,8 +315,8 @@ function organizeLabels() {
                         default:
                             priority = 99;
                     }
-                    var catList = catList + "<li data-priority='" + priority + "' class='level1'>" + s.substring(s.indexOf("<"));
-                    //var catList = catList + "<li class='level1'>" + level1 + "</li>";
+                    // var catList = catList + "<li data-priority='" + priority + "' class='level1'>" + s.substring(s.indexOf("<"));
+                    var catList = catList + "<li data-priority='" + priority + "' class='level1'>";
                     tmpList = ""
                     for (j = 0; j < len; ++j) {
                         t = _categories[j];
@@ -326,9 +326,9 @@ function organizeLabels() {
                         }
                     }
                     if (tmpList.length > 0) {
-                        catList = catList + "<ul class='level2'>" + tmpList + "</ul>" + "</li>";
+                        catList = catList + level1 + "<ul class='level2'><li>" + s.substring(s.indexOf("<"),s.indexOf(">")+1) + "All " + level1 + "</a></li>" + tmpList + "</ul>" + "</li>";
                     } else {
-                        catList = catList + "</li>";
+                        catList = catList + s.substring(s.indexOf("<")) + "</li>";
                     }
                 }
             }
