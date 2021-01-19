@@ -3175,7 +3175,7 @@ margin-right: 0px !important;
                 <b:if cond='data:post.featuredImage.isResizable'>
                   <b:comment>***Homepage Images</b:comment>
                   &lt;div class=&quot;img-hover-zoom&quot; data-labels=&quot;<b:if cond='data:post.labels'><b:loop values='data:post.labels' var='label'> ,<data:label.name/></b:loop></b:if>&quot;&gt;
-                      &lt;div class=&quot;thumbnail-img&quot; data-title=&quot;<data:post.title/>&quot; style=&quot;background-image: url(<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)'/>);background-size: 100% 100%;&quot; loading=&quot;lazy&quot;&gt;
+                      &lt;div class=&quot;thumbnail-img asyncImage&quot; data-title=&quot;<data:post.title/>&quot; style=&quot;background-image: url(<data:post.featuredImage/>);background-size: 100% 100%;&quot; loading=&quot;lazy&quot; data-src=&quot;<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1:1&quot;)'/>&quot;&gt;
                       &lt;/div&gt;
                   &lt;/div&gt;
                   <b:comment>

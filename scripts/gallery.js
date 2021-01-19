@@ -13,7 +13,8 @@ document.onreadystatechange = function () {
     // list collapse/uncollapse
     $('.level2').hide();
 
-    $('.level1').click(function () {
+    $('li.level1').click(function (e) {
+        if(e.target !== e.currentTarget) return;
         if (this.classList.contains("show")) {
             $(this).removeClass("show");
         } else {
@@ -84,7 +85,7 @@ function loadHighQualityArt() {
             item.classList.remove('asyncImage');
             return item.nodeName === 'IMG' ?
                 item.src = item.dataset.src :
-                item.style.backgroundImage = 'url(${item.dataset.src})';
+                item.style.backgroundImage = 'url(' + item.dataset.src + ')';
         };
     });
 }

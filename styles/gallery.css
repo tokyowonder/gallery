@@ -382,13 +382,13 @@ div.fancybox-infobar {
     background-color: #2C2E2F !important;
     color: #ffffff !important;
 }
-nav.real-menu ul, nav.real-menu li { 
+.sidebar li { 
     list-style-type: none;
     cursor: pointer;
     color: gray;
 }
 
-nav.real-menu a {
+.sidebar li a {
     text-decoration: none;
     color: inherit;
 }
