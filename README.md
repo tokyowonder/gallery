@@ -1,5 +1,5 @@
-# gallery
-##How to use
+# Gallery Template
+## How to use
 Use files via 
 https://www.jsdelivr.com/package/gh/tokyowonder/gallery
 
