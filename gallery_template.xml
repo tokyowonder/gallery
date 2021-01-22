@@ -4,6 +4,7 @@
   <head>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
+    <meta content='#f28c83' name='theme-color'/>
     <b:include data='blog' name='all-head-content'/>
     <b:skin version='1.3.0'><![CDATA[/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 /*
@@ -3565,6 +3566,9 @@ margin-right: 0px !important;
 
     <b:include data='blog' name='google-analytics'/>
 
+    <link as='font' crossorigin='anonymous' href='https://cdn.tokyowonder.net/file/tokyowonder/tokyowonder-logotype.woff2' rel='preload' type='font/woff2'/>
+    <link as='font' crossorigin='anonymous' href='https://cdn.tokyowonder.net/file/tokyowonder/tokyowonder-logotype.woff' rel='preload' type='font/woff'/>    
+    
     <!-- script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'/-->
 
     <!-- link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/normalize.min.css' rel='stylesheet'/-->
@@ -3576,13 +3580,13 @@ margin-right: 0px !important;
 
     <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/common.min.js'/>
     <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/store.min.js'/>
-    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery@latest/scripts/gallery.min.js'/>
+    <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery@0.1.1.1/scripts/gallery.min.js'/>
 
     <script src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/slick.min.js'/>
     <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/slick.min.css' rel='stylesheet' type='text/css'/>
     <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/slick-theme.min.css' rel='stylesheet' type='text/css'/>
 
-    <script defer src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/jquery.fancybox.min.js'/>
+    <script defer='defer' src='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/scripts/jquery.fancybox.min.js'/>
     <link href='https://cdn.jsdelivr.net/gh/tokyowonder/gallery/styles/jquery.fancybox.min.css' rel='stylesheet' type='text/css'/>
 
 
@@ -3606,7 +3610,27 @@ margin-right: 0px !important;
       /* thumbnail search result styling */
       
     </style>
-     
+    <script>
+    var font = new FontFace(&quot;Roboto Condensed&quot;, &quot;url(https://cdn.tokyowonder.net/file/tokyowonder/tokyowonder-logotype.woff2)&quot;, {
+  		style: &#39;normal&#39;, unicodeRange: &#39;U+000-5FF&#39;, weight: &#39;400&#39;
+	});
+
+    // don&#39;t wait for the render tree, initiate an immediate fetch!
+    font.load().then(function() {
+      // apply the font (which may re-render text and cause a page reflow)
+      // after the font has finished downloading
+      //document.fonts.add(font);
+      //document.body.style.fontFamily = &quot;Awesome Font, serif&quot;;
+
+      // OR... by default the content is hidden,
+      // and it&#39;s rendered after the font is available
+      var content = document.getElementById(&quot;logo-type&quot;);
+      content.style.display = &quot;inline-block&quot;;
+
+      // OR... apply your own render strategy here...
+    });   
+       
+    </script> 
   </head>
 
   <body class='container'>
@@ -3646,11 +3670,10 @@ margin-right: 0px !important;
   font-family: &#39;Roboto Condensed&#39;;
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: block;
   src: local(&#39;Roboto Condensed&#39;),
-       url(&#39;https://cdn.jsdelivr.net/gh/tokyowonder/gallery/fonts/tokyowonder-logotype.woff2&#39;) format(&#39;woff2&#39;),
-       url(&#39;https://cdn.jsdelivr.net/gh/tokyowonder/gallery/fonts/tokyowonder-logotype.woff&#39;) format(&#39;woff&#39;),
-  	   unicode-range: U+000-5FF;
+       url(&#39;https://cdn.tokyowonder.net/file/tokyowonder/tokyowonder-logotype.woff2&#39;) format(&#39;woff2&#39;),
+       url(&#39;https://cdn.tokyowonder.net/file/tokyowonder/tokyowonder-logotype.woff&#39;) format(&#39;woff&#39;);
 }                        
                       
 .logo-art {
@@ -3739,10 +3762,14 @@ div.header-widget h1 {
 
   }
 }
+                        
+#logo-type, {
+  display: none;
+}
 
 &lt;/style&gt;
 
-&lt;h1&gt;&lt;a href=&quot;https://www.kimono.gallery&quot;&gt;&lt;img class=&quot;logo-art&quot; alt=&quot;Tokyo Wonder&quot; height=&quot;40&quot; width =&quot;40&quot; src=&quot;https://1.bp.blogspot.com/-OyDT7qxLcdc/XwALD1SvH8I/AAAAAAAADAE/ylaMpsTn7i8hMOpxnMrzbfk_Ul6iunyCgCK4BGAYYCw/s1600/logo_blog.png&quot; /&gt;&lt;span class=&quot;logo-type notranslate&quot;&gt;Tokyo Wonder&lt;/span&gt;&lt;span class=&quot;title-separator&quot;&gt; &amp;nbsp;|&amp;nbsp; &lt;/span&gt;&lt;span class=&quot;blog-title notranslate&quot;&gt;Kimono&amp;nbsp;Gallery&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;</b:widget-setting>
+&lt;h1&gt;&lt;a href=&quot;https://www.kimono.gallery&quot;&gt;&lt;img class=&quot;logo-art&quot; alt=&quot;Tokyo Wonder&quot; height=&quot;40&quot; width =&quot;40&quot; src=&quot;https://1.bp.blogspot.com/-OyDT7qxLcdc/XwALD1SvH8I/AAAAAAAADAE/ylaMpsTn7i8hMOpxnMrzbfk_Ul6iunyCgCK4BGAYYCw/s1600/logo_blog.png&quot; /&gt;&lt;span id=&quot;logo-type&quot; class=&quot;logo-type notranslate&quot;&gt;Tokyo Wonder&lt;/span&gt;&lt;span class=&quot;title-separator&quot;&gt; &amp;nbsp;|&amp;nbsp; &lt;/span&gt;&lt;span class=&quot;blog-title notranslate&quot;&gt;Kimono&amp;nbsp;Gallery&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;</b:widget-setting>
                     </b:widget-settings>
                     <b:includable id='main'>
   <b:include name='widget-title'/>
