@@ -486,104 +486,7 @@ margin-top:16px
 .item-control{
 display:none
 }
-#comments{
-border-top:1px dashed rgba(0,0,0,.54);
-margin-top:20px;
-padding:20px
-}
-#comments .comment-thread ol{
-margin:0;
-padding-left:0;
-padding-$startSide:0
-}
-#comments .comment .comment-replybox-single,#comments .comment-thread .comment-replies{
-margin-left:60px
-}
-#comments .comment-thread .thread-count{
-display:none
-}
-#comments .comment{
-list-style-type:none;
-padding:0 0 30px;
-position:relative
-}
-#comments .comment .comment{
-padding-bottom:8px
-}
-.comment .avatar-image-container{
-position:absolute
-}
-.comment .avatar-image-container img{
-border-radius:50%
-}
-.avatar-image-container svg,.comment .avatar-image-container .avatar-icon{
-border-radius:50%;
-border:solid 1px $(item.action.color);
-box-sizing:border-box;
-fill:$(item.action.color);
-height:35px;
-margin:0;
-padding:7px;
-width:35px
-}
-.comment .comment-block{
-margin-top:10px;
-margin-$startSide:60px;
-padding-bottom:0
-}
-#comments .comment-author-header-wrapper{
-margin-left:40px
-}
-#comments .comment .thread-expanded .comment-block{
-padding-bottom:20px
-}
-#comments .comment .comment-header .user,#comments .comment .comment-header .user a{
-color:$(body.text.color);
-font-style:normal;
-font-weight:700
-}
-#comments .comment .comment-actions{
-bottom:0;
-margin-bottom:15px;
-position:absolute
-}
-#comments .comment .comment-actions>*{
-margin-right:8px
-}
-#comments .comment .comment-header .datetime{
-bottom:0;
-color:$(item.subtitle.color);
-display:inline-block;
-font-size:13px;
-font-style:italic;
-margin-$startSide:8px
-}
-#comments .comment .comment-footer .comment-timestamp a,#comments .comment .comment-header .datetime a{
-color:$(item.subtitle.color)
-}
-#comments .comment .comment-content,.comment .comment-body{
-margin-top:12px;
-word-break:break-word
-}
-.comment-body{
-margin-bottom:12px
-}
-#comments.embed[data-num-comments="0"]{
-border:0;
-margin-top:0;
-padding-top:0
-}
-#comments.embed[data-num-comments="0"] #comment-post-message,#comments.embed[data-num-comments="0"] div.comment-form>p,#comments.embed[data-num-comments="0"] p.comment-footer{
-display:none
-}
-#comment-editor-src{
-display:none
-}
-.comments .comments-content .loadmore.loaded{
-max-height:0;
-opacity:0;
-overflow:hidden
-}
+
 .extendable .remaining-items{
 height:0;
 overflow:hidden;
@@ -1235,86 +1138,7 @@ width:40%
 body#layout .hamburger-menu,body#layout .search{
 display:none
 }
-.widget.Sharing .sharing-button{
-display:none
-}
-.widget.Sharing .sharing-buttons li{
-padding:0
-}
-.widget.Sharing .sharing-buttons li span{
-display:none
-}
-.post-share-buttons{
-position:relative
-}
-.centered-bottom .share-buttons .svg-icon-24,.share-buttons .svg-icon-24{
-fill:$(sharing.icons.color)
-}
-.sharing-open.touch-icon-button:active .touch-icon,.sharing-open.touch-icon-button:focus .touch-icon{
-background-color:transparent
-}
-.share-buttons{
-background-color:$(sharing.background.color);
-border-radius:2px;
-box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-color:$(sharing.text.color);
-list-style:none;
-margin:0;
-padding:8px 0;
-position:absolute;
-top:-11px;
-min-width:200px;
-z-index:101
-}
-.share-buttons.hidden{
-display:none
-}
-.sharing-button{
-background:0 0;
-border:0;
-margin:0;
-outline:0;
-padding:0;
-cursor:pointer
-}
-.share-buttons li{
-margin:0;
-height:48px
-}
-.share-buttons li:last-child{
-margin-bottom:0
-}
-.share-buttons li .sharing-platform-button{
-box-sizing:border-box;
-cursor:pointer;
-display:block;
-height:100%;
-margin-bottom:0;
-padding:0 16px;
-position:relative;
-width:100%
-}
-.share-buttons li .sharing-platform-button:focus,.share-buttons li .sharing-platform-button:hover{
-background-color:rgba(128,128,128,.1);
-outline:0
-}
-.share-buttons li svg[class*=" sharing-"],.share-buttons li svg[class^=sharing-]{
-position:absolute;
-top:10px
-}
-.share-buttons li span.sharing-platform-button{
-position:relative;
-top:0
-}
-.share-buttons li .platform-sharing-text{
-display:block;
-font-size:16px;
-line-height:48px;
-white-space:nowrap
-}
-.share-buttons li .platform-sharing-text{
-margin-$startSide:56px
-}
+
 .flat-button{
 cursor:pointer;
 display:inline-block;
@@ -1711,20 +1535,7 @@ display:-ms-flexbox;
 display:flex;
 height:$(blog.title.font.size + 16px)
 }
-.subscribe-popup h3{
-color:$(dialog.title.color);
-font:$(dialog.title.font);
-margin-bottom:24px
-}
-.subscribe-popup div.widget.FollowByEmail .follow-by-email-address{
-color:$(dialog.input.color);
-font:$(dialog.input.font)
-}
-.subscribe-popup div.widget.FollowByEmail .follow-by-email-submit{
-color:$(dialog.action.color);
-font:$(dialog.action.font);
-margin-top:24px
-}
+
 .post-content{
 -webkit-box-flex:0;
 -webkit-flex:0 1 auto;
@@ -1907,17 +1718,8 @@ margin-bottom:56px
 .FeaturedPost h3{
 margin:16px 136px 8px 136px
 }
-.shown-ad{
-margin-bottom:85px;
-margin-top:85px
-}
-.shown-ad .inline-ad{
-display:block;
-max-width:$(feed.width - 604px)
-}
-body.feed-view .shown-ad:last-child{
-display:none
-}
+
+
 .post-title,.post-title a{
 color:$(feed.title.color);
 font:$(feed.title.font);
@@ -2499,37 +2301,7 @@ height:24px
 font-size:$(body.text.font.size * 4);
 line-height:$(body.text.font.size * 4)
 }
-#comments a,#comments cite,#comments div{
-font-size:16px;
-line-height:1.4
-}
-#comments .comment .comment-header .user,#comments .comment .comment-header .user a{
-color:$(body.text.color);
-font:$(item.action.font)
-}
-#comments .comment .comment-header .datetime a{
-color:$(item.subtitle.color);
-font:$(item.action.font)
-}
-#comments .comment .comment-header .datetime a::before{
-content:'\00B7   '
-}
-#comments .comment .comment-content{
-margin-top:6px
-}
-#comments .comment .comment-actions{
-color:$(item.action.color);
-font:$(item.action.font)
-}
-#comments .continue{
-display:none
-}
-#comments .comment-footer{
-margin-top:8px
-}
-.cmt_iframe_holder{
-margin-$startSide:140px!important
-}
+
 body.variant-rockpool_deep_orange .centered-top-secondline .PageList .overflow-popup li a{
 color:#000
 }
@@ -3610,7 +3382,7 @@ margin-right: 0px !important;
       /* thumbnail search result styling */
       
     </style>
-    <script>
+    <!-- script>
     var font = new FontFace(&quot;Roboto Condensed&quot;, &quot;url(https://cdn.tokyowonder.net/file/tokyowonder/tokyowonder-logotype.woff2)&quot;, {
   		style: &#39;normal&#39;, unicodeRange: &#39;U+000-5FF&#39;, weight: &#39;400&#39;
 	});
@@ -3625,12 +3397,12 @@ margin-right: 0px !important;
       // OR... by default the content is hidden,
       // and it&#39;s rendered after the font is available
       var content = document.getElementById(&quot;logo-type&quot;);
-      content.style.display = &quot;inline-block&quot;;
+      content.style.visibility = &quot;visible&quot;;
 
       // OR... apply your own render strategy here...
     });   
        
-    </script> 
+    </script --> 
   </head>
 
   <body class='container'>
@@ -3763,160 +3535,23 @@ div.header-widget h1 {
   }
 }
                         
-#logo-type, {
-  display: none;
+#logo-type {
+  // visibility: hidden;
+  width: 232px;
 }
 
+.fade-in {
+animation: fadeIn ease 10s;
+}
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}                       
+                        
+                        
 &lt;/style&gt;
 
-&lt;h1&gt;&lt;a href=&quot;https://www.kimono.gallery&quot;&gt;&lt;img class=&quot;logo-art&quot; alt=&quot;Tokyo Wonder&quot; height=&quot;40&quot; width =&quot;40&quot; src=&quot;https://1.bp.blogspot.com/-OyDT7qxLcdc/XwALD1SvH8I/AAAAAAAADAE/ylaMpsTn7i8hMOpxnMrzbfk_Ul6iunyCgCK4BGAYYCw/s1600/logo_blog.png&quot; /&gt;&lt;span id=&quot;logo-type&quot; class=&quot;logo-type notranslate&quot;&gt;Tokyo Wonder&lt;/span&gt;&lt;span class=&quot;title-separator&quot;&gt; &amp;nbsp;|&amp;nbsp; &lt;/span&gt;&lt;span class=&quot;blog-title notranslate&quot;&gt;Kimono&amp;nbsp;Gallery&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;</b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-</b:includable>
-                  </b:widget>
-                  <b:widget id='Header1' locked='true' title='Kimono Gallery (Header)' type='Header' visible='true'>
-                    <b:widget-settings>
-                      <b:widget-setting name='displayUrl'/>
-                      <b:widget-setting name='displayHeight'>0</b:widget-setting>
-                      <b:widget-setting name='sectionWidth'>150</b:widget-setting>
-                      <b:widget-setting name='useImage'>false</b:widget-setting>
-                      <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-                      <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
-                      <b:widget-setting name='displayWidth'>0</b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main' var='this'>
-    <div class='header-widget'>
-      <b:include cond='data:imagePlacement in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='image'/>
-      <b:include cond='data:imagePlacement not in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='title'/>
-      <b:include cond='data:imagePlacement != &quot;REPLACE&quot;' name='description'/>
-    </div>
-    <b:include cond='data:imagePlacement == &quot;BEHIND&quot;' name='behindImageStyle'/>
-  </b:includable>
-                    <b:includable id='behindImageStyle'>
-    <b:if cond='data:sourceUrl'>
-      <b:include cond='data:this.image' data='{                    image: data:this.image,                    selector: &quot;.header-widget&quot;                  }' name='responsiveImageStyle'/>
-      <style type='text/css'>
-        .header-widget {
-          background-position: <data:blog.locale.languageAlignment/>;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      </style>
-    </b:if>
-  </b:includable>
-                    <b:includable id='description'>
-    <p>
-      <data:this.description/>
-    </p>
-  </b:includable>
-                    <b:includable id='image'>
-          <b:include name='super.image'/>
-          <!-- If we are replacing the title, force it to render anyway, and it'll be hidden in CSS. -->
-          <b:include cond='data:this.imagePlacement == &quot;REPLACE&quot;' name='title'/>
-        </b:includable>
-                    <b:includable id='title'>
-          <div>
-            <b:class cond='data:this.imagePlacement == &quot;REPLACE&quot;' name='replaced'/>
-            <b:include name='super.title'/>
-          </div>
-        </b:includable>
-                  </b:widget>
-                  <b:widget id='HTML6' locked='false' title='' type='HTML' visible='true'>
-                    <b:widget-settings>
-                      <b:widget-setting name='content'>&lt;!-- Print Layout --&gt;
-&lt;style&gt;
-@media print {
-
-@page {
-    margin-top: 2cm;
-    margin-bottom: 2cm;
-    margin-left: 2cm;
-    margin-right: 2cm;
-}
-
-body {
-  font-family: arial,helvetica,sans;
-  font-size: 13px;
-  background: #fff !important;
-  color:#000 !important;
-}
-
-// Do no underline links
-a, a:visited, a:link {
-  color:#000;
-  text-decoration:none
-}
-
-.page .page_body, .post-body-container, .post-body, #main, #page_body, .Blog, .post-outer, .post-content, .post-title-container, .blog-posts {
-  max-width: 100% ;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-}
-
-article {
-    margin-top: 0px !important;
-}
-
-.post-title-container, .post-filter-message {
-    background-color: white !important;
-    margin: 0px !important;
-    padding-left: 0px !important;
-    padding-top: 0px !important;
-    padding-right: 0px !important;
-    padding-bottom: 0px !important;
-}
-
-.post-filter-message {
-    color: black !important;
-    font-size: 20px !important;
-    font-weight: bold !important;
-    margin-bottom: 40px !important;
-}
-
-.post-filter-message a {
-    display: none !important;
-}
-.post-snippet .snippet-fade {
-    background-color: white !important;
-    background: white !important;
-}
-
-h3.post-title {
-    color: black !important;
-    page-break-before: auto !important;
-    page-break-after: avoid !important;
-}
-
-.post-outer-container {
-    margin-bottom: 60px !important;
-    page-break-before: auto !important;
-    page-break-inside: avoid !important;
-}
-
-.post-body-container, .post-body {
-    background-color: white !important;
-    margin: 0px !important;
-    padding-left: 0px !important;
-    padding-top: 0px !important;
-    padding-right: 0px !important;
-    padding-bottom: 0px !important;
-}
-
-.japanese, .tags, .references {
-    color: black !important!;
-}
-
-.noprint, .header, .tags, .sidebar-container, #footer, header, .post-bottom, .HTML, .comments, .post-header-container, .hamburger-section, .centered-top-placeholder, .snippet-thumbnail, .blog-pager, .FeaturedPost, .feed-message {
-  display:none !important;
-}
-
-}
-&lt;/style&gt;</b:widget-setting>
+&lt;h1 class=&quot;fade-in&quot;&gt;&lt;a href=&quot;https://www.kimono.gallery&quot;&gt;&lt;img class=&quot;logo-art&quot; alt=&quot;Tokyo Wonder&quot; height=&quot;40&quot; width =&quot;40&quot; src=&quot;https://1.bp.blogspot.com/-OyDT7qxLcdc/XwALD1SvH8I/AAAAAAAADAE/ylaMpsTn7i8hMOpxnMrzbfk_Ul6iunyCgCK4BGAYYCw/s1600/logo_blog.png&quot; /&gt;&lt;span id=&quot;logo-type&quot; class=&quot;logo-type notranslate&quot;&gt;Tokyo Wonder&lt;/span&gt;&lt;span class=&quot;title-separator&quot;&gt; &amp;nbsp;|&amp;nbsp; &lt;/span&gt;&lt;span class=&quot;blog-title notranslate&quot;&gt;Kimono&amp;nbsp;Gallery&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;</b:widget-setting>
                     </b:widget-settings>
                     <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -3928,39 +3563,6 @@ h3.post-title {
                 </b:section>
               </div> <!-- End blog name and header -->
 
-              <!-- Subscribe -->
-              <b:if cond='data:view.isLayoutMode or data:widgets any (w =&gt; w.sectionId == &quot;subscription&quot;)'>
-                <section class='subscribe-section-container'>
-                  <button class='flat-button subscribe-button'><b:eval expr='data:messages.subscribe'/></button>
-                  <div class='subscribe-popup-container'>
-                    <div aria-labelledby='subscribe-title' class='subscribe-popup dialog hidden' role='dialog' tabindex='-1'>
-                      <div role='document'>
-                        <h3 class='subscribe-title' id='subscribe-title'><b:eval expr='data:messages.subscribeToThisBlog'/></h3>
-                        <b:section id='subscription' name='Subscription' showaddelement='false'>
-                          <b:widget id='FollowByEmail1' locked='true' title='Follow by Email' type='FollowByEmail' visible='false'>
-                            <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <b:include name='content'/>
-</b:includable>
-                            <b:includable id='content'>
-  <div class='widget-content'>
-    <div class='follow-by-email-inner'>
-      <form action='https://feedburner.google.com/fb/a/mailverify' expr:onsubmit='&quot;window.open(\&quot;https://feedburner.google.com/fb/a/mailverify?uri=&quot; + data:feedPath + &quot;\&quot;, \&quot;popupwindow\&quot;, \&quot;scrollbars=yes,width=550,height=520\&quot;); return true&quot;' method='post' target='popupwindow'>
-        <input autocomplete='off' class='follow-by-email-address' expr:placeholder='data:messages.emailAddress' name='email' type='email'/>
-        <input class='follow-by-email-submit' expr:value='data:messages.getEmailNotifications' type='submit'/>
-        <input expr:value='data:feedPath' name='uri' type='hidden'/>
-        <input name='loc' type='hidden' value='en_US'/>
-      </form>
-    </div>
-  </div>
-</b:includable>
-                          </b:widget>
-                        </b:section>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </b:if> <!-- End subscribe -->
               <!-- Search -->
               <b:if cond='data:view.isLayoutMode or data:widgets any (w =&gt; w.sectionId == &quot;search_top&quot;)'>
                 <div class='search'>
@@ -4096,7 +3698,7 @@ h3.post-title {
                     </div>
                   </b:if>
                   <b:section class='main' id='page_body' name='Page Body' showaddelement='false'>
-                    <b:widget id='FeaturedPost1' locked='true' title='' type='FeaturedPost' visible='false'>
+                    <b:widget id='FeaturedPost1' locked='true' title='' type='FeaturedPost' version='2' visible='false'>
                       <b:widget-settings>
                         <b:widget-setting name='showSnippet'>false</b:widget-setting>
                         <b:widget-setting name='showPostTitle'>false</b:widget-setting>
@@ -4125,7 +3727,7 @@ h3.post-title {
           <b:if cond='data:view.isSingleItem and data:widget.type == &quot;Blog&quot;'>
             <b:include name='super.footerBylines'/>
           <b:else/>
-            <b:include data='{ items: [[&quot;share&quot;, &quot;comments&quot;]] }' name='footerBylinesOverride'/>
+            
           </b:if>
         </b:includable>
                       <b:includable id='headerByline'>
@@ -4388,12 +3990,6 @@ h3.post-title {
                       <b:includable id='commentsTitle'>
   <h3 class='title'><data:messages.comments/></h3>
 </b:includable>
-                      <b:includable id='defaultAdUnit'>
-          <!-- Clear out style (need non-empty string) -->
-          <b:with value='&quot;/* Done in css. */&quot;' var='style'>
-            <b:include name='super.defaultAdUnit'/>
-          </b:with>
-        </b:includable>
                       <b:includable id='feedLinks'>
           <!-- Don't show feed links. -->
         </b:includable>
@@ -4409,7 +4005,6 @@ h3.post-title {
           <b:if cond='data:view.isSingleItem and data:widget.type == &quot;Blog&quot;'>
             <b:include name='super.footerBylines'/>
           <b:else/>
-            <b:include data='{ items: [[&quot;share&quot;, &quot;comments&quot;]] }' name='footerBylinesOverride'/>
           </b:if>
         </b:includable>
                       <b:includable id='headerByline'>
@@ -4595,7 +4190,7 @@ h3.post-title {
   </section>
 </b:includable>
                     </b:widget>
-                    <b:widget cond='data:view.isSingleItem and data:posts any (p =&gt; p.id != data:view.postId)' id='PopularPosts1' locked='true' title='' type='PopularPosts' visible='false'>
+                    <b:widget cond='data:view.isSingleItem and data:posts any (p =&gt; p.id != data:view.postId)' id='PopularPosts1' locked='true' title='' type='PopularPosts' version='2' visible='false'>
                       <b:widget-settings>
                         <b:widget-setting name='numItemsToShow'>3</b:widget-setting>
                         <b:widget-setting name='showThumbnails'>true</b:widget-setting>
@@ -4624,7 +4219,7 @@ h3.post-title {
           <b:if cond='data:view.isSingleItem and data:widget.type == &quot;Blog&quot;'>
             <b:include name='super.footerBylines'/>
           <b:else/>
-            <b:include data='{ items: [[&quot;share&quot;, &quot;comments&quot;]] }' name='footerBylinesOverride'/>
+
           </b:if>
         </b:includable>
                       <b:includable id='headerByline'>
@@ -4637,10 +4232,8 @@ h3.post-title {
                       <b:includable id='postFooter' var='post'>
           <div class='post-bottom'>
             <div class='post-footer'>
-              <!-- Footer bylines -->
-              <b:include name='footerBylines'/>
+
             </div>
-            <b:include cond='data:view.isSingleItem and data:widget.type == &quot;Blog&quot;' data='{ shareButtonClass: &quot;post-share-buttons-bottom&quot;, overridden: true }' name='maybeAddShareButtons'/>
             <b:include cond='data:view.isMultipleItems or data:widget.type == &quot;PopularPosts&quot;' data='post' name='postJumpLink'/>
           </div>
         </b:includable>
@@ -4676,11 +4269,112 @@ h3.post-title {
               </div>
             </div>
         </div>
+        
         <aside class='sidebar-container sidebar-invisible' role='complementary'>
           <div class='navigation container'>
             <b:include data='{ button: true, iconClass: &quot;sidebar-back flat-icon-button ripple&quot; }' name='forwardArrowIcon'/>
           </div>
           <b:section class='sidebar' id='sidebar' name='Sidebar' preferred='yes'>
+            <b:widget id='HTML6' locked='false' title='' type='HTML' visible='true'>
+              <b:widget-settings>
+                <b:widget-setting name='content'>&lt;!-- Print Layout --&gt;
+&lt;style&gt;
+@media print {
+
+@page {
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+    margin-left: 2cm;
+    margin-right: 2cm;
+}
+
+body {
+  font-family: arial,helvetica,sans;
+  font-size: 13px;
+  background: #fff !important;
+  color:#000 !important;
+}
+
+// Do no underline links
+a, a:visited, a:link {
+  color:#000;
+  text-decoration:none
+}
+
+.page .page_body, .post-body-container, .post-body, #main, #page_body, .Blog, .post-outer, .post-content, .post-title-container, .blog-posts {
+  max-width: 100% ;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+article {
+    margin-top: 0px !important;
+}
+
+.post-title-container, .post-filter-message {
+    background-color: white !important;
+    margin: 0px !important;
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.post-filter-message {
+    color: black !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin-bottom: 40px !important;
+}
+
+.post-filter-message a {
+    display: none !important;
+}
+.post-snippet .snippet-fade {
+    background-color: white !important;
+    background: white !important;
+}
+
+h3.post-title {
+    color: black !important;
+    page-break-before: auto !important;
+    page-break-after: avoid !important;
+}
+
+.post-outer-container {
+    margin-bottom: 60px !important;
+    page-break-before: auto !important;
+    page-break-inside: avoid !important;
+}
+
+.post-body-container, .post-body {
+    background-color: white !important;
+    margin: 0px !important;
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.japanese, .tags, .references {
+    color: black !important!;
+}
+
+.noprint, .header, .tags, .sidebar-container, #footer, header, .post-bottom, .HTML, .comments, .post-header-container, .hamburger-section, .centered-top-placeholder, .snippet-thumbnail, .blog-pager, .FeaturedPost, .feed-message {
+  display:none !important;
+}
+
+}
+&lt;/style&gt;</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+            </b:widget>
             <b:widget id='Label1' locked='false' title='Categories' type='Label' visible='true'>
               <b:widget-settings>
                 <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
