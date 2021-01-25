@@ -1,129 +1,122 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css='false' b:js='false' b:version='2' expr:dir='data:blog.languageDirection' lang='en-US' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
-	<head>
+  &lt;head&gt;<b:comment>hacky head tag thing to avoid unwanted css links</b:comment>
 		<meta charset='UTF-8'/>
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content='width=device-width, initial-scale=1' name='viewport'/>
 		<title><data:blog.title/></title>
+		<meta content='page description goes here' name='description'/>
+  
+		<meta property="og:title" content=""/>
+		<meta property="og:type" content=""/>
+		<meta property="og:url" content=""/>
+		<meta property="og:image" content=""/>
+  
+		<meta name="theme-color" content="#AFEEEE"/>		 
+		<b:skin><![CDATA[
+		/* basic layout specific css */
 
-        <b:skin><![CDATA[
-        /* basic layout specific css */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
 
-        ]]></b:skin>
-	</head>
-    <body>
-		<div id='wrapper'>
-			<header id='header-wrapper'>
-				<b:section class='header' id='header' maxwidgets='1'>
-<b:widget id='Header1' locked='true' title='Test Gallery (Header)' type='Header' version='1'>
-  <b:widget-settings>
-    <b:widget-setting name='displayUrl'/>
-    <b:widget-setting name='displayHeight'>0</b:widget-setting>
-    <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
-    <b:widget-setting name='useImage'>false</b:widget-setting>
-    <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-    <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
-    <b:widget-setting name='displayWidth'>0</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
-							<b:if cond='data:useImage'>
-								<b:if cond='data:imagePlacement == &quot;BEHIND&quot;'>
-									<!--
-      Show image as background to text. You can't really calculate the width
-      reliably in JS because margins are not taken into account by any of
-      clientWidth, offsetWidth or scrollWidth, so we don't force a minimum
-      width if the user is using shrink to fit.
-      This results in a margin-width's worth of pixels being cropped. If the
-      user is not using shrink to fit then we expand the header.
-      -->
-									<b:if cond='data:mobile'>
-										<div id='header-inner'>
-											<div class='titlewrapper' style='background: transparent'>
-												<h1 class='title' style='background: transparent; border-width: 0px'>
-													<b:include name='title'/>
-												</h1>
-											</div>
-											<b:include name='description'/>
-										</div>
-										<b:else/>
-										<div expr:style='&quot;background-image: url(\&quot;&quot; + data:sourceUrl + &quot;\&quot;); &quot;                      + &quot;background-position: &quot;                      + data:backgroundPositionStyleStr + &quot;; &quot;                      + data:widthStyleStr                      + &quot;min-height: &quot; + data:height                      + &quot;_height: &quot; + data:height                      + &quot;background-repeat: no-repeat; &quot;' id='header-inner'>
-											<div class='titlewrapper' style='background: transparent'>
-												<h1 class='title' style='background: transparent; border-width: 0px'>
-													<b:include name='title'/>
-												</h1>
-											</div>
-											<b:include name='description'/>
-										</div>
-									</b:if>
-									<b:else/>
-									<!--Show the image only-->
-									<div id='header-inner'>
-										<a expr:href='data:blog.homepageUrl' style='display: block'>
-											<img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_headerimg&quot;' expr:src='data:sourceUrl' expr:width='data:width' style='display: block'/>
-										</a>
-										<!--Show the description-->
-										<b:if cond='data:imagePlacement == &quot;BEFORE_DESCRIPTION&quot;'>
-											<b:include name='description'/>
-										</b:if>
-									</div>
-								</b:if>
-								<b:else/>
-								<!--No header image -->
-								<div id='header-inner'>
-									<div class='titlewrapper'>
-										<h1 class='title'>
-											<b:include name='title'/>
-										</h1>
-									</div>
-									<b:include name='description'/>
-								</div>
-							</b:if>
-						</b:includable>
-  <b:includable id='description'>
-							<div class='descriptionwrapper'>
-								<p class='description'>
-									<span>
-										<data:description/>
-									</span>
-								</p>
-							</div>
-						</b:includable>
-  <b:includable id='title'>
-							<b:tag cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
-								<data:title/>
-							</b:tag>
-						</b:includable>
-</b:widget>
-</b:section>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a { text-decoration:none; color:inherit; cursor:pointer; }
+h1, h2, h3, h4, h5, h6 { margin:0; }
+
+.clearfix:before,
+.clearfix:after {
+  content: ".";	
+  display: block;	
+  height: 0;	
+  overflow: hidden;		
+}
+.clearfix:after { clear: both; }
+
+header {
+  background-color: #ccffff;
+}
+footer {
+  background-color: #ccffff;
+}
+article {
+  background-color: #ccffcc;
+}
+aside {
+  background-color: #ffffcc;
+}
+
+// #ffcccc
+
+		]]></b:skin>
+	&lt;/head&gt;&lt;/head&gt;&lt;!--<head/>--&gt;
+  
+	<body>
+		<div id='wrapper' expr:class='data:blog.pageType'>	  
+		<b:comment>identify page type</b:comment>	  
+		<b:switch var='data:blog.pageType'>
+			<b:case value='archive'/>
+			<!--Archive-->
+			<b:case value='error_page'/>
+			<!--Error-->
+			<b:case value='item'/>
+			<!--Item-->
+			<b:case value='static_page'/>
+			<!--Static-->
+			<b:default/>
+			<b:if cond='data:blog.url == data:blog.homepageUrl'>
+				<!--Homepage-->
+				<b:elseif cond='data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;'/>
+				<!--Index-->
+			</b:if>
+			<b:if cond='data:blog.searchQuery'>
+				<!--Search-->
+			</b:if>
+			<b:if cond='data:blog.searchLabel'>
+				<!--Label-->
+			</b:if>
+		</b:switch> 
+
+
+			<header>
+			  <h1 class='title'><b:tag cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+				<data:blog.title/></b:tag>
+			  </h1>
+			  <nav id='navigation'/>
 			</header>
-			<nav id='navigation'/>
+		  
+
 			<div class='clearfix'/>
-			<section id='outer-wrapper'>
+		<main>	
+		  <section id='outer-wrapper'>
 				<article id='article-wrapper'>
+				  
 					<b:section class='main' id='main'>
 <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'>
   <b:widget-settings>
-    <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-    <b:widget-setting name='style.textcolor'>#25a186</b:widget-setting>
-    <b:widget-setting name='showShareButtons'>false</b:widget-setting>
-    <b:widget-setting name='authorLabel'>By</b:widget-setting>
-    <b:widget-setting name='showCommentLink'>false</b:widget-setting>
-    <b:widget-setting name='style.urlcolor'>#e5f0ee</b:widget-setting>
-    <b:widget-setting name='showAuthor'>false</b:widget-setting>
-    <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-    <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
-    <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-    <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
-    <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
-    <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-    <b:widget-setting name='showLabels'>true</b:widget-setting>
-    <b:widget-setting name='showLocation'>false</b:widget-setting>
-    <b:widget-setting name='showTimestamp'>false</b:widget-setting>
-    <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-    <b:widget-setting name='showBacklinks'>false</b:widget-setting>
-    <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-    <b:widget-setting name='showInlineAds'>false</b:widget-setting>
-    <b:widget-setting name='showReactions'>false</b:widget-setting>
+	<b:widget-setting name='showDateHeader'>false</b:widget-setting>
+	<b:widget-setting name='style.textcolor'>#25a186</b:widget-setting>
+	<b:widget-setting name='showShareButtons'>false</b:widget-setting>
+	<b:widget-setting name='authorLabel'>By</b:widget-setting>
+	<b:widget-setting name='showCommentLink'>false</b:widget-setting>
+	<b:widget-setting name='style.urlcolor'>#e5f0ee</b:widget-setting>
+	<b:widget-setting name='showAuthor'>false</b:widget-setting>
+	<b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+	<b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+	<b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+	<b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
+	<b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+	<b:widget-setting name='style.layout'>1x1</b:widget-setting>
+	<b:widget-setting name='showLabels'>true</b:widget-setting>
+	<b:widget-setting name='showLocation'>false</b:widget-setting>
+	<b:widget-setting name='showTimestamp'>false</b:widget-setting>
+	<b:widget-setting name='postsPerAd'>1</b:widget-setting>
+	<b:widget-setting name='showBacklinks'>false</b:widget-setting>
+	<b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
+	<b:widget-setting name='showInlineAds'>false</b:widget-setting>
+	<b:widget-setting name='showReactions'>false</b:widget-setting>
   </b:widget-settings>
   <b:includable id='main' var='top'>
 								<b:if cond='!data:mobile'>
@@ -132,11 +125,11 @@
 										<b:include data='top' name='status-message'/>
 										<b:loop values='data:posts' var='post'>
 											<b:if cond='data:post.isDateStart and not data:post.isFirstPost'>
-          &lt;/div&gt;&lt;/div&gt;
-        </b:if>
+											  &lt;/div&gt;&lt;/div&gt;
+											</b:if>
 											<b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-outer&quot;&gt;
-        </b:if>
+											  &lt;div class=&quot;date-outer&quot;&gt;
+											</b:if>
 											<b:if cond='data:post.dateHeader'>
 												<h2 class='date-header'>
 													<span>
@@ -145,22 +138,16 @@
 												</h2>
 											</b:if>
 											<b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-posts&quot;&gt;
-        </b:if>
+												&lt;div class=&quot;date-posts&quot;&gt;
+											</b:if>
 											<div class='post-outer'>
 												<b:include data='post' name='post'/>
 												<b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
 											</div>
-											<!-- Ad -->
-											<b:if cond='data:post.includeAd'>
-												<div class='inline-ad'>
-													<data:adCode/>
-												</div>
-											</b:if>
 										</b:loop>
 										<b:if cond='data:numPosts != 0'>
-        &lt;/div&gt;&lt;/div&gt;
-      </b:if>
+										  &lt;/div&gt;&lt;/div&gt;
+										</b:if>
 									</div>
 									<!-- navigation -->
 									<b:include name='nextprev'/>
@@ -169,11 +156,11 @@
 									<b:else/>
 									<b:include name='mobile-main'/>
 								</b:if>
-								<b:include cond='data:top.showPlusOne' name='googlePlusBootstrap'/>
+
 							</b:includable>
-  <b:includable id='backlinkDeleteIcon' var='backlink'/>
-  <b:includable id='backlinks' var='post'/>
-  <b:includable id='comment-form' var='post'>
+  							<b:includable id='backlinkDeleteIcon' var='backlink'/>
+  							<b:includable id='backlinks' var='post'/>
+  							<b:includable id='comment-form' var='post'>
 								<div class='comment-form'>
 									<a name='comment-form'/>
 									<b:if cond='data:mobile'>
@@ -201,13 +188,13 @@
 									</b:if>
 									<data:post.cmtfpIframe/>
 									<script type='text/javascript'>
-      BLOG_CMT_createIframe(&#39;
+	  									BLOG_CMT_createIframe(&#39;
 										<data:post.appRpcRelayPath/>&#39;);
-    
+	
 									</script>
 								</div>
 							</b:includable>
-  <b:includable id='commentDeleteIcon' var='comment'>
+  							<b:includable id='commentDeleteIcon' var='comment'>
 								<span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
 									<b:if cond='data:showCmtPopup'>
 										<div class='goog-toggle-button'>
@@ -219,20 +206,20 @@
 									</b:if>
 								</span>
 							</b:includable>
-  <b:includable id='comment_count_picker' var='post'>
+  							<b:includable id='comment_count_picker' var='post'>
 								<a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
 									<data:post.commentLabelFull/>:
   
 								</a>
 							</b:includable>
-  <b:includable id='comment_picker' var='post'>
+  							<b:includable id='comment_picker' var='post'>
 								<b:if cond='data:post.showThreadedComments'>
 									<b:include data='post' name='threaded_comments'/>
 									<b:else/>
 									<b:include data='post' name='comments'/>
 								</b:if>
 							</b:includable>
-  <b:includable id='comments' var='post'>
+  							<b:includable id='comments' var='post'>
 								<div class='comments' id='comments'>
 									<a name='comments'/>
 									<b:if cond='data:post.allowComments'>
@@ -245,23 +232,23 @@
 													<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
 														<data:post.oldestLinkText/>
 													</a>
-              &#160;
-            
+			  										&#160;
+			
 													<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
 														<data:post.olderLinkText/>
 													</a>
-              &#160;
-          
+			  										&#160;
+		  
 												</b:if>
 												<data:post.commentRangeText/>
 												<b:if cond='data:post.hasNewerLinks'>
-            &#160;
-            
+			  										&#160;
+			
 													<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
 														<data:post.newerLinkText/>
 													</a>
-            &#160;
-            
+			  										&#160;
+			
 													<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
 														<data:post.newestLinkText/>
 													</a>
@@ -318,11 +305,11 @@
 												<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
 													<data:post.olderLinkText/>
 												</a>
-          &#160;
-          
+			  										&#160;
+		  
 												<data:post.commentRangeText/>
-          &#160;
-          
+			  										&#160;
+		  
 												<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
 													<data:post.newerLinkText/>
 												</a>
@@ -352,7 +339,7 @@
 									</b:if>
 								</div>
 							</b:includable>
-  <b:includable id='feedLinks'>
+  							<b:includable id='feedLinks'>
 								<b:if cond='data:blog.pageType != &quot;item&quot;'>
 									<!-- Blog feed links -->
 									<b:if cond='data:feedLinks'>
@@ -369,7 +356,7 @@
 									</div>
 								</b:if>
 							</b:includable>
-  <b:includable id='feedLinksBody' var='links'>
+  							<b:includable id='feedLinksBody' var='links'>
 								<div class='feed-links'>
 									<data:feedLinksMsg/>
 									<b:loop values='data:links' var='f'>
@@ -380,10 +367,10 @@
 									</b:loop>
 								</div>
 							</b:includable>
-  <b:includable id='iframe_comments' var='post'>
+  							<b:includable id='iframe_comments' var='post'>
 								<!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
 							</b:includable>
-  <b:includable id='mobile-index-post' var='post'>
+  							<b:includable id='mobile-index-post' var='post'>
 								<div class='mobile-date-outer date-outer'>
 									<b:if cond='data:post.dateHeader'>
 										<div class='date-header'>
@@ -415,12 +402,12 @@
 											<div style='clear: both;'/>
 										</a>
 										<div class='mobile-index-comment'>
-											<b:include cond='data:blog.pageType != &quot;static_page&quot;                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
+											<b:include cond='data:blog.pageType != &quot;static_page&quot;						  and data:post.allowComments						  and data:post.numComments != 0' data='post' name='comment_count_picker'/>
 										</div>
 									</div>
 								</div>
 							</b:includable>
-  <b:includable id='mobile-main' var='top'>
+  							<b:includable id='mobile-main' var='top'>
 								<!-- posts -->
 								<div class='blog-posts hfeed'>
 									<b:include data='top' name='status-message'/>
@@ -436,7 +423,7 @@
 								</div>
 								<b:include name='mobile-nextprev'/>
 							</b:includable>
-  <b:includable id='mobile-nextprev'>
+  							<b:includable id='mobile-nextprev'>
 								<div class='blog-pager' id='blog-pager'>
 									<b:if cond='data:newerPageUrl'>
 										<div class='mobile-link-button' id='blog-pager-newer-link'>
@@ -461,7 +448,7 @@
 								</div>
 								<div class='clear'/>
 							</b:includable>
-  <b:includable id='mobile-post' var='post'>
+  							<b:includable id='mobile-post' var='post'>
 								<div class='date-outer'>
 									<b:if cond='data:post.dateHeader'>
 										<h2 class='date-header'>
@@ -537,7 +524,7 @@
 															</b:if>
 														</span>
 														<span class='post-comment-link'>
-															<b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                                  and data:post.allowComments' data='post' name='comment_count_picker'/>
+															<b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}								  and data:post.allowComments' data='post' name='comment_count_picker'/>
 														</span>
 													</div>
 													<div class='post-footer-line post-footer-line-2'>
@@ -561,7 +548,7 @@
 									</div>
 								</div>
 							</b:includable>
-  <b:includable id='nextprev'>
+  							<b:includable id='nextprev'>
 								<div class='blog-pager' id='blog-pager'>
 									<b:if cond='data:newerPageUrl'>
 										<span id='blog-pager-newer-link'>
@@ -590,7 +577,7 @@
 								</div>
 								<div class='clear'/>
 							</b:includable>
-  <b:includable id='post' var='post'>
+  							<b:includable id='post' var='post'>
 								<div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
 									<b:if cond='data:post.firstImageUrl'>
 										<meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
@@ -677,7 +664,7 @@
 												</b:if>
 											</span>
 											<span class='post-comment-link'>
-												<b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                          and data:post.allowComments' data='post' name='comment_count_picker'/>
+												<b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}						  and data:post.allowComments' data='post' name='comment_count_picker'/>
 											</span>
 											<span class='post-icons'>
 												<!-- email post links -->
@@ -739,7 +726,7 @@
 									</div>
 								</div>
 							</b:includable>
-  <b:includable id='postQuickEdit' var='post'>
+  							<b:includable id='postQuickEdit' var='post'>
 								<b:if cond='data:post.editUrl'>
 									<span expr:class='&quot;item-control &quot; + data:post.adminClass'>
 										<a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
@@ -748,7 +735,7 @@
 									</span>
 								</b:if>
 							</b:includable>
-  <b:includable id='shareButtons' var='post'>
+  							<b:includable id='shareButtons' var='post'>
 								<b:if cond='data:top.showEmailButton'>
 									<a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'>
 										<span class='share-button-link-text'>
@@ -807,7 +794,7 @@
 									<div style='clear: both;'/>
 								</b:if>
 							</b:includable>
-  <b:includable id='threaded-comment-form' var='post'>
+  							<b:includable id='threaded-comment-form' var='post'>
 								<div class='comment-form'>
 									<a name='comment-form'/>
 									<b:if cond='data:mobile'>
@@ -827,198 +814,198 @@
 									</b:if>
 									<data:post.cmtfpIframe/>
 									<script type='text/javascript'>
-      BLOG_CMT_createIframe(&#39;
+	  									BLOG_CMT_createIframe(&#39;
 										<data:post.appRpcRelayPath/>&#39;);
-    
+	
 									</script>
 								</div>
 							</b:includable>
-  <b:includable id='threaded_comment_js' var='post'>
+  							<b:includable id='threaded_comment_js' var='post'>
 								<script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
 								<script type='text/javascript'>
-    (function() {
-      var items = 
+	(function() {
+	  var items = 
 									<data:post.commentJso/>;
-      var msgs = 
+	  var msgs = 
 									<data:post.commentMsgs/>;
-      var config = 
+	  var config = 
 									<data:post.commentConfig/>;
 
 // 
 									<![CDATA[
-      var cursor = null;
-      if (items && items.length > 0) {
-        cursor = parseInt(items[items.length - 1].timestamp) + 1;
-      }
+	  var cursor = null;
+	  if (items && items.length > 0) {
+		cursor = parseInt(items[items.length - 1].timestamp) + 1;
+	  }
 
-      var bodyFromEntry = function(entry) {
-        var text = (entry &&
-                    ((entry.content && entry.content.$t) ||
-                     (entry.summary && entry.summary.$t))) ||
-            '';
-        if (entry && entry.gd$extendedProperty) {
-          for (var k in entry.gd$extendedProperty) {
-            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
-              return '<span class="deleted-comment">' + text + '</span>';
-            }
-          }
-        }
-        return text;
-      }
+	  var bodyFromEntry = function(entry) {
+		var text = (entry &&
+					((entry.content && entry.content.$t) ||
+					 (entry.summary && entry.summary.$t))) ||
+			'';
+		if (entry && entry.gd$extendedProperty) {
+		  for (var k in entry.gd$extendedProperty) {
+			if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+			  return '<span class="deleted-comment">' + text + '</span>';
+			}
+		  }
+		}
+		return text;
+	  }
 
-      var parse = function(data) {
-        cursor = null;
-        var comments = [];
-        if (data && data.feed && data.feed.entry) {
-          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
-            var comment = {};
-            // comment ID, parsed out of the original id format
-            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
-            comment.id = id ? id[2] : null;
-            comment.body = bodyFromEntry(entry);
-            comment.timestamp = Date.parse(entry.published.$t) + '';
-            if (entry.author && entry.author.constructor === Array) {
-              var auth = entry.author[0];
-              if (auth) {
-                comment.author = {
-                  name: (auth.name ? auth.name.$t : undefined),
-                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
-                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
-                };
-              }
-            }
-            if (entry.link) {
-              if (entry.link[2]) {
-                comment.link = comment.permalink = entry.link[2].href;
-              }
-              if (entry.link[3]) {
-                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
-                if (pid && pid[1]) {
-                  comment.parentId = pid[1];
-                }
-              }
-            }
-            comment.deleteclass = 'item-control blog-admin';
-            if (entry.gd$extendedProperty) {
-              for (var k in entry.gd$extendedProperty) {
-                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
-                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
-                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
-                  comment.displayTime = entry.gd$extendedProperty[k].value;
-                }
-              }
-            }
-            comments.push(comment);
-          }
-        }
-        return comments;
-      };
+	  var parse = function(data) {
+		cursor = null;
+		var comments = [];
+		if (data && data.feed && data.feed.entry) {
+		  for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+			var comment = {};
+			// comment ID, parsed out of the original id format
+			var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+			comment.id = id ? id[2] : null;
+			comment.body = bodyFromEntry(entry);
+			comment.timestamp = Date.parse(entry.published.$t) + '';
+			if (entry.author && entry.author.constructor === Array) {
+			  var auth = entry.author[0];
+			  if (auth) {
+				comment.author = {
+				  name: (auth.name ? auth.name.$t : undefined),
+				  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+				  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+				};
+			  }
+			}
+			if (entry.link) {
+			  if (entry.link[2]) {
+				comment.link = comment.permalink = entry.link[2].href;
+			  }
+			  if (entry.link[3]) {
+				var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+				if (pid && pid[1]) {
+				  comment.parentId = pid[1];
+				}
+			  }
+			}
+			comment.deleteclass = 'item-control blog-admin';
+			if (entry.gd$extendedProperty) {
+			  for (var k in entry.gd$extendedProperty) {
+				if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+				  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+				} else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+				  comment.displayTime = entry.gd$extendedProperty[k].value;
+				}
+			  }
+			}
+			comments.push(comment);
+		  }
+		}
+		return comments;
+	  };
 
-      var paginator = function(callback) {
-        if (hasMore()) {
-          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
-          if (cursor) {
-            url += '&published-min=' + new Date(cursor).toISOString();
-          }
-          window.bloggercomments = function(data) {
-            var parsed = parse(data);
-            cursor = parsed.length < 50 ? null
-                : parseInt(parsed[parsed.length - 1].timestamp) + 1
-            callback(parsed);
-            window.bloggercomments = null;
-          }
-          url += '&callback=bloggercomments';
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = url;
-          document.getElementsByTagName('head')[0].appendChild(script);
-        }
-      };
-      var hasMore = function() {
-        return !!cursor;
-      };
-      var getMeta = function(key, comment) {
-        if ('iswriter' == key) {
-          var matches = !!comment.author
-              && comment.author.name == config.authorName
-              && comment.author.profileUrl == config.authorUrl;
-          return matches ? 'true' : '';
-        } else if ('deletelink' == key) {
-          return config.baseUri + '/delete-comment.g?blogID='
-               + config.blogId + '&postID=' + comment.id;
-        } else if ('deleteclass' == key) {
-          return comment.deleteclass;
-        }
-        return '';
-      };
+	  var paginator = function(callback) {
+		if (hasMore()) {
+		  var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+		  if (cursor) {
+			url += '&published-min=' + new Date(cursor).toISOString();
+		  }
+		  window.bloggercomments = function(data) {
+			var parsed = parse(data);
+			cursor = parsed.length < 50 ? null
+				: parseInt(parsed[parsed.length - 1].timestamp) + 1
+			callback(parsed);
+			window.bloggercomments = null;
+		  }
+		  url += '&callback=bloggercomments';
+		  var script = document.createElement('script');
+		  script.type = 'text/javascript';
+		  script.src = url;
+		  document.getElementsByTagName('head')[0].appendChild(script);
+		}
+	  };
+	  var hasMore = function() {
+		return !!cursor;
+	  };
+	  var getMeta = function(key, comment) {
+		if ('iswriter' == key) {
+		  var matches = !!comment.author
+			  && comment.author.name == config.authorName
+			  && comment.author.profileUrl == config.authorUrl;
+		  return matches ? 'true' : '';
+		} else if ('deletelink' == key) {
+		  return config.baseUri + '/delete-comment.g?blogID='
+			   + config.blogId + '&postID=' + comment.id;
+		} else if ('deleteclass' == key) {
+		  return comment.deleteclass;
+		}
+		return '';
+	  };
 
-      var replybox = null;
-      var replyUrlParts = null;
-      var replyParent = undefined;
+	  var replybox = null;
+	  var replyUrlParts = null;
+	  var replyParent = undefined;
 
-      var onReply = function(commentId, domId) {
-        if (replybox == null) {
-          // lazily cache replybox, and adjust to suit this style:
-          replybox = document.getElementById('comment-editor');
-          if (replybox != null) {
-            replybox.height = '250px';
-            replybox.style.display = 'block';
-            replyUrlParts = replybox.src.split('#');
-          }
-        }
-        if (replybox && (commentId !== replyParent)) {
-          replybox.src = '';
-          document.getElementById(domId).insertBefore(replybox, null);
-          replybox.src = replyUrlParts[0]
-              + (commentId ? '&parentID=' + commentId : '')
-              + '#' + replyUrlParts[1];
-          replyParent = commentId;
-        }
-      };
+	  var onReply = function(commentId, domId) {
+		if (replybox == null) {
+		  // lazily cache replybox, and adjust to suit this style:
+		  replybox = document.getElementById('comment-editor');
+		  if (replybox != null) {
+			replybox.height = '250px';
+			replybox.style.display = 'block';
+			replyUrlParts = replybox.src.split('#');
+		  }
+		}
+		if (replybox && (commentId !== replyParent)) {
+		  replybox.src = '';
+		  document.getElementById(domId).insertBefore(replybox, null);
+		  replybox.src = replyUrlParts[0]
+			  + (commentId ? '&parentID=' + commentId : '')
+			  + '#' + replyUrlParts[1];
+		  replyParent = commentId;
+		}
+	  };
 
-      var hash = (window.location.hash || '#').substring(1);
-      var startThread, targetComment;
-      if (/^comment-form_/.test(hash)) {
-        startThread = hash.substring('comment-form_'.length);
-      } else if (/^c[0-9]+$/.test(hash)) {
-        targetComment = hash.substring(1);
-      }
+	  var hash = (window.location.hash || '#').substring(1);
+	  var startThread, targetComment;
+	  if (/^comment-form_/.test(hash)) {
+		startThread = hash.substring('comment-form_'.length);
+	  } else if (/^c[0-9]+$/.test(hash)) {
+		targetComment = hash.substring(1);
+	  }
 
-      // Configure commenting API:
-      var configJso = {
-        'maxDepth': config.maxThreadDepth
-      };
-      var provider = {
-        'id': config.postId,
-        'data': items,
-        'loadNext': paginator,
-        'hasMore': hasMore,
-        'getMeta': getMeta,
-        'onReply': onReply,
-        'rendered': true,
-        'initComment': targetComment,
-        'initReplyThread': startThread,
-        'config': configJso,
-        'messages': msgs
-      };
+	  // Configure commenting API:
+	  var configJso = {
+		'maxDepth': config.maxThreadDepth
+	  };
+	  var provider = {
+		'id': config.postId,
+		'data': items,
+		'loadNext': paginator,
+		'hasMore': hasMore,
+		'getMeta': getMeta,
+		'onReply': onReply,
+		'rendered': true,
+		'initComment': targetComment,
+		'initReplyThread': startThread,
+		'config': configJso,
+		'messages': msgs
+	  };
 
-      var render = function() {
-        if (window.goog && window.goog.comments) {
-          var holder = document.getElementById('comment-holder');
-          window.goog.comments.render(holder, provider);
-        }
-      };
+	  var render = function() {
+		if (window.goog && window.goog.comments) {
+		  var holder = document.getElementById('comment-holder');
+		  window.goog.comments.render(holder, provider);
+		}
+	  };
 
-      // render now, or queue to render when library loads:
-      if (window.goog && window.goog.comments) {
-        render();
-      } else {
-        window.goog = window.goog || {};
-        window.goog.comments = window.goog.comments || {};
-        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
-        window.goog.comments.loadQueue.push(render);
-      }
-    })();
+	  // render now, or queue to render when library loads:
+	  if (window.goog && window.goog.comments) {
+		render();
+	  } else {
+		window.goog = window.goog || {};
+		window.goog.comments = window.goog.comments || {};
+		window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+		window.goog.comments.loadQueue.push(render);
+	  }
+	})();
 // ]]>
 								</script>
 							</b:includable>
@@ -1055,91 +1042,104 @@
 							</b:includable>
 </b:widget>
 </b:section>
+				  
 				</article>
 			</section>
+		  </main>
+		  
 			<div class='clearfix'/>
-			<aside id='sidebar-wrapper'>
+
+		  <aside id='sidebar-wrapper'>
 				<b:section class='sidebar' id='sidebar' showaddelement='yes'>
-<b:widget id='BlogSearch1' locked='false' title='Search This Blog' type='BlogSearch' version='1'>
-  <b:includable id='main'>
-    <!-- only display title if it's non-empty -->
-    <b:if cond='data:title != &quot;&quot;'>
-      <h2 class='title'><data:title/></h2>
-    </b:if>
+				  <b:widget id='BlogSearch1' locked='false' title='Search This Blog' type='BlogSearch' version='1'>
+					<b:includable id='main'>
+					  <!-- only display title if it's non-empty -->
+					  <b:if cond='data:title != &quot;&quot;'>
+						<h2 class='title'><data:title/></h2>
+					  </b:if>
 
-    <div class='widget-content'>
-      <div expr:id='data:widget.instanceId + &quot;_form&quot;'>
-        <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
-          <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
-          <table cellpadding='0' cellspacing='0' class='gsc-search-box'>
-            <tbody>
-              <tr>
-                <td class='gsc-input'>
-                  <input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
-                </td>
-                <td class='gsc-search-button'>
-                  <input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
-      </div>
-    </div>
+					  <div class='widget-content'>
+						<div expr:id='data:widget.instanceId + &quot;_form&quot;'>
+						  <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
+							<b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+							<table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+							  <tbody>
+								<tr>
+								  <td class='gsc-input'>
+									<input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
+								  </td>
+								  <td class='gsc-search-button'>
+									<input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
+								  </td>
+								</tr>
+							  </tbody>
+							</table>
+						  </form>
+						</div>
+					  </div>
 
-  </b:includable>
-</b:widget>
-<b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
-  <b:widget-settings>
-    <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-    <b:widget-setting name='display'>LIST</b:widget-setting>
-    <b:widget-setting name='selectedLabelsList'/>
-    <b:widget-setting name='showType'>ALL</b:widget-setting>
-    <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
-  <b:if cond='data:title != &quot;&quot;'>
-    <h2><data:title/></h2>
-  </b:if>
-  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
-    <b:if cond='data:display == &quot;list&quot;'>
-      <ul>
-        <b:loop values='data:labels' var='label'>
-          <li>
-            <b:if cond='data:blog.url == data:label.url'>
-              <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-            <b:else/>
-              <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
-            </b:if>
-            <b:if cond='data:showFreqNumbers'>
-              <span dir='ltr'>(<data:label.count/>)</span>
-            </b:if>
-          </li>
-        </b:loop>
-      </ul>
-    <b:else/>
-      <b:loop values='data:labels' var='label'>
-        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
-          <b:if cond='data:blog.url == data:label.url'>
-            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-          <b:else/>
-            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
-          </b:if>
-          <b:if cond='data:showFreqNumbers'>
-            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
-          </b:if>
-        </span>
-      </b:loop>
-    </b:if>
+					</b:includable>
+				  </b:widget>
+				  <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
+					<b:widget-settings>
+					  <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+					  <b:widget-setting name='display'>LIST</b:widget-setting>
+					  <b:widget-setting name='selectedLabelsList'/>
+					  <b:widget-setting name='showType'>ALL</b:widget-setting>
+					  <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+					</b:widget-settings>
+					<b:includable id='main'>
+					<b:if cond='data:title != &quot;&quot;'>
+					  <h2><data:title/></h2>
+					</b:if>
+					<div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+					  <b:if cond='data:display == &quot;list&quot;'>
+						<ul>
+						  <b:loop values='data:labels' var='label'>
+							<li>
+							  <b:if cond='data:blog.url == data:label.url'>
+								<span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+							  <b:else/>
+								<a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+							  </b:if>
+							  <b:if cond='data:showFreqNumbers'>
+								<span dir='ltr'>(<data:label.count/>)</span>
+							  </b:if>
+							</li>
+						  </b:loop>
+						</ul>
+					  <b:else/>
+						<b:loop values='data:labels' var='label'>
+						  <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
+							<b:if cond='data:blog.url == data:label.url'>
+							  <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+							<b:else/>
+							  <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+							</b:if>
+							<b:if cond='data:showFreqNumbers'>
+							  <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
+							</b:if>
+						  </span>
+						</b:loop>
+					  </b:if>
 
-  </div>
-</b:includable>
-</b:widget>
-</b:section>
+					</div>
+				  </b:includable>
+				  </b:widget>
+				</b:section>
 			</aside>
+		  
 			<div class='clearfix'/>
-			<footer id='footer-wrapper'>
-				<b:section class='footer' id='footer' showaddelement='yes'/>
+		  
+			<footer>
+				<div class='blogger'>
+				  <a href='https://www.blogger.com' rel='nofollow'>
+				  <svg class='svg-icon-24'>
+				  <use xlink:href='/responsive/sprite_v1_6.css.svg#ic_post_blogger_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'/>
+				  </svg>
+				  Powered by Blogger
+				  </a>
+				</div>			  
 			</footer>
 		</div>
 	</body>
