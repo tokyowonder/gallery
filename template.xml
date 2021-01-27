@@ -33,8 +33,13 @@ header, footer {
 article {
   background-color: #ccffcc;
 }
-aside {
+aside, .drawer {
   background-color: #ffffcc;
+}
+
+.drawer {
+background-color: #ffff99
+overflow: hidden;
 }
 
 nav {
@@ -57,6 +62,50 @@ body {
 
 footer {
   flex-shrink: 0;
+}
+
+
+.svg-icon-24, .svg-icon-24-button, .link-24-button {
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    min-width: 24px;
+}
+
+header {
+		display:flex;
+		align-items: center;
+		justify-content: space-between;
+
+		height: 72px !important;
+		padding-left: 24px;
+		padding-right: 24px;
+
+    white-space: nowrap;
+}
+
+
+
+#search-input {
+  display: none;
+}
+
+#search-input:target {
+  display: block;
+}
+
+a.search-button {
+width:24px;
+height:24px;
+}
+
+header nav,.search, #search-form {
+		display:flex;
+		align-items: center;
+}
+
+header nav {
+    margin-left: auto;
 }
 
 ]]></b:skin>
@@ -94,7 +143,22 @@ footer {
 				<h1 class='title'><b:tag cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
 					<data:blog.title/></b:tag>
 				</h1>
-				<nav id='navigation'/>
+              
+              
+				<nav id='navigation'>
+              
+                    <div class="search">
+                      <a href="#search-input" class="search-button">              
+                        <svg viewBox="0 0 24 24" id="search-button-top" class="svg-icon-24-button"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                      </a>              
+
+                    </div>           
+              
+                     <a aria-controls='drawer-name' aria-expanded='false' class='link-24-button' data-drawer-trigger='' href='#'>
+                       <svg class='svg-icon-24-button' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/></svg>
+              		</a>
+                  
+              </nav>
 			</header>
 
 	<div expr:class='data:blog.pageType' id='content'>
@@ -859,9 +923,19 @@ footer {
 		</main>
 
 
-	<b:section class='sidebar' id='sidebar' showaddelement='yes'>
-<b:widget id='BlogSearch1' locked='false' title='Search This Blog' type='BlogSearch' version='1'>
-  <b:includable id='main'>
+<section class='drawer' data-drawer-target='' id='drawer-name'>
+  <div class='drawer__overlay' data-drawer-close='' tabindex='-1'/>      
+    <div id="sidebar" class='drawer__wrapper'>    
+    <div class='drawer__header'>
+      <div class='drawer__title'>
+        Sidebar
+      </div>
+      <a aria-label='Close' class='drawer__close' data-drawer-close='' href='#'><svg class='svg-icon-24-button' transform='rotate(180)' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z'/></svg></a>
+    </div>
+    <div class='drawer__content'>  
+      <b:section class='sidebar_nav' id='sidebar_nav' showaddelement='yes'>
+          <b:widget id='BlogSearch1' locked='false' title='Search This Blog' type='BlogSearch' version='1'>
+            <b:includable id='main'>
 				<!-- only display title if it's non-empty -->
 				<b:if cond='data:title != &quot;&quot;'>
 					<h2 class='title'>
@@ -869,6 +943,18 @@ footer {
 					</h2>
 				</b:if>
 				<div class='widget-content'>
+                    <style>
+                      .gsc-input input[type=text] {
+                          float: right;
+                          padding: 6px;
+                          outline: 0;
+                          border-width: 0 0 2px;
+  						  border-color: black
+                          font-size: 17px;
+                        }
+                      .gsc-search-button { width: 24px; height: 24px; }
+                      .gsc-search-button input[type="submit"] { display: none;}
+                    </style>
 					<div expr:id='data:widget.instanceId + &quot;_form&quot;'>
 						<form class='gsc-search-box' expr:action='data:blog.searchUrl'>
 							<b:attr cond='not data:view.isPreview' name='target' value='_top'/>
@@ -876,10 +962,10 @@ footer {
 								<tbody>
 									<tr>
 										<td class='gsc-input'>
-											<input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
+											<input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text' placeholder='Search..'/>
 										</td>
 										<td class='gsc-search-button'>
-											<input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
+											<label><input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/><svg viewBox="0 0 24 24" class="svg-icon-24-button"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></label>
 										</td>
 									</tr>
 								</tbody>
@@ -888,16 +974,16 @@ footer {
 					</div>
 				</div>
 			</b:includable>
-</b:widget>
-<b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
-  <b:widget-settings>
-    <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-    <b:widget-setting name='display'>LIST</b:widget-setting>
-    <b:widget-setting name='selectedLabelsList'/>
-    <b:widget-setting name='showType'>ALL</b:widget-setting>
-    <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
-  </b:widget-settings>
-  <b:includable id='main'>
+          </b:widget>
+          <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
+            <b:widget-settings>
+              <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+              <b:widget-setting name='display'>LIST</b:widget-setting>
+              <b:widget-setting name='selectedLabelsList'/>
+              <b:widget-setting name='showType'>ALL</b:widget-setting>
+              <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
 				<b:if cond='data:title != &quot;&quot;'>
 					<h2>
 						<data:title/>
@@ -947,9 +1033,12 @@ footer {
 					</b:if>
 				</div>
 			</b:includable>
-</b:widget>
-</b:section>
+          </b:widget>
+        </b:section>
+        </div> 
+  </div> 
   
+</section>  
 
 
 		</div><b:comment>end of content</b:comment>
@@ -986,7 +1075,165 @@ Powered by Blogger
             body.classList.add(scrollUp);
           }
           lastScroll = currentScroll;
-        });               
+        }); 
+        
+        
+        
+        var drawer = function () {
+
+    if (!Element.prototype.closest) {
+      if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+      }
+      Element.prototype.closest = function (s) {
+        var el = this;
+        var ancestor = this;
+        if (!document.documentElement.contains(el)) return null;
+        do {
+          if (ancestor.matches(s)) return ancestor;
+          ancestor = ancestor.parentElement;
+        } while (ancestor !== null);
+        return null;
+      };
+    }
+
+
+    //
+    // Settings
+    //
+    var settings = {
+      speedOpen: 50,
+      speedClose: 350,
+      activeClass: &#39;is-active&#39;,
+      visibleClass: &#39;is-visible&#39;,
+      selectorTarget: &#39;[data-drawer-target]&#39;,
+      selectorTrigger: &#39;[data-drawer-trigger]&#39;,
+      selectorClose: &#39;[data-drawer-close]&#39;,
+
+    };
+
+
+    //
+    // Methods
+    //
+
+    // Toggle accessibility
+    var toggleccessibility = function (event) {
+      if (event.getAttribute(&#39;aria-expanded&#39;) === &#39;true&#39;) {
+        event.setAttribute(&#39;aria-expanded&#39;, false);
+      } else {
+        event.setAttribute(&#39;aria-expanded&#39;, true);
+      }
+    };
+
+    // Open Drawer
+    var openDrawer = function (trigger) {
+
+      // Find target
+      var target = document.getElementById(trigger.getAttribute(&#39;aria-controls&#39;));
+
+      // Make it active
+      target.classList.add(settings.activeClass);
+
+      // Make body overflow hidden so it&#39;s not scrollable
+      // document.documentElement.style.overflow = &#39;hidden&#39;;
+
+      // Toggle accessibility
+      toggleccessibility(trigger);
+
+      // Make it visible
+      setTimeout(function () {
+        target.classList.add(settings.visibleClass);
+      }, settings.speedOpen);
+
+    };
+
+    // Close Drawer
+    var closeDrawer = function (event) {
+
+      // Find target
+      var closestParent = event.closest(settings.selectorTarget),
+        childrenTrigger = document.querySelector(&#39;[aria-controls=&quot;&#39; + closestParent.id + &#39;&quot;&#39;);
+
+      // Make it not visible
+      closestParent.classList.remove(settings.visibleClass);
+
+      // Remove body overflow hidden
+      // document.documentElement.style.overflow = &#39;&#39;;
+
+      // Toggle accessibility
+      toggleccessibility(childrenTrigger);
+
+      // Make it not active
+      setTimeout(function () {
+        closestParent.classList.remove(settings.activeClass);
+      }, settings.speedClose);
+
+    };
+
+    // Click Handler
+    var clickHandler = function (event) {
+
+      // Find elements
+      var toggle = event.target,
+        open = toggle.closest(settings.selectorTrigger),
+        close = toggle.closest(settings.selectorClose);
+
+      // Open drawer when the open button is clicked
+      if (open) {
+        openDrawer(open);
+      }
+
+      // Close drawer when the close button (or overlay area) is clicked
+      if (close) {
+        closeDrawer(close);
+      }
+
+      // Prevent default link behavior
+      if (open || close) {
+        event.preventDefault();
+      }
+
+    };
+
+    // Keydown Handler, handle Escape button
+    var keydownHandler = function (event) {
+
+      if (event.key === &#39;Escape&#39; || event.keyCode === 27) {
+
+        // Find all possible drawers
+        var drawers = document.querySelectorAll(settings.selectorTarget),
+          i;
+
+        // Find active drawers and close them when escape is clicked
+        for (i = 0; i &lt; drawers.length; ++i) {
+          if (drawers[i].classList.contains(settings.activeClass)) {
+            closeDrawer(drawers[i]);
+          }
+        }
+
+      }
+
+    };
+
+
+    //
+    // Inits and Event Listeners
+    //
+    document.addEventListener(&#39;click&#39;, clickHandler, false);
+    document.addEventListener(&#39;keydown&#39;, keydownHandler, false);
+
+
+};
+
+drawer();
+        
+        
+        
+        
+        
+        
+        
       </script>
       <style>
         header {
@@ -1051,6 +1298,95 @@ svg:not(:root) {
     min-width: 24px;
 }
 
+
+#sidebar {
+  overflow: hidden;
+}
+        
+.drawer {
+  display: none;
+}
+        
+        .drawer__header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.drawer__close {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+        
+
+.drawer.is-active {
+  display: block;
+}
+
+.drawer.is-visible .drawer__wrapper {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.drawer.is-visible .drawer__overlay {
+  opacity: 0.5;
+}        
+
+.drawer__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  z-index: 9999;
+  overflow: auto;
+  transition: transform 0.3s;
+  will-change: transform;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  -webkit-transform: translateX(103%);
+  transform: translateX(103%); /* extra 3% because of box-shadow */
+  -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
+  box-shadow: 0 2px 6px #777;
+}
+
+.drawer__content {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  flex-grow: 1;
+  padding: 1.5rem;
+}        
+        
+        
+.drawer__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s;
+  will-change: opacity;
+  background-color: #000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}        
         
       </style>
 	</body>
