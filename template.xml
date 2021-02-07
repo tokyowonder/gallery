@@ -47,6 +47,7 @@ nav {
 }
 
 
+
 html, body {
   height: 100%;
 }
@@ -76,6 +77,10 @@ margin-left: 8px;
     min-width: 24px;
 }
 
+button:focus.gsc-search-button {
+outline: none; 
+}
+
 header {
 		display:flex;
 		align-items: center;
@@ -100,9 +105,12 @@ div.search-top {
 }
 
 .search-top input {
+visibility:hidden;
     padding: 6px;
     outline: 0;
-    border-width: 0 0 2px;
+   
+border-width: 0; // border-width: 0 0 2px;
+background: #F8F9F9;
 }
 
         header .header-left {
@@ -172,6 +180,7 @@ div.search-top {
             color: var(--title-color);
             //display: inline;
             line-height: 24px;
+			white-space: normal;
         }
 
         header span.logo-type-text {
@@ -225,9 +234,9 @@ div.search-top {
                 <div class='logo logo-mark small' onclick='location.href=&apos;https://kimono.gallery&apos;;'/>
                 <div class='logo logo-type' onclick='location.href=&apos;https://kimono.gallery&apos;;'/>
                 <div class='title-text'>
-                    <a href='https://kimono.gallery'><span class='logo logo-type-text'>Tokyo Wonder</span></a>
+                    <a aria-label='Gallery homepage' href='https://kimono.gallery'><span class='logo logo-type-text'>Tokyo Wonder</span></a>
                     <div class='title-separator'>|</div>
-                    <div class='header-title'><b:tag cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+                    <div class='header-title'><b:tag aria-label='Gallery homepage' cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
 					<data:blog.title/></b:tag></div>
                 </div>                
               </div>
@@ -264,19 +273,16 @@ form.search-box-top {
   background: none;
   margin-left: -28px;
 }
-  
-
-
 </style> 
 <form action='https://tokyowondergallery.blogspot.com/search' class='search-box-top' target='_top'>
-  <span><input class='gsc-input' name='q' placeholder='Search' title='Search' type='text'/></span>
-  <button class='gsc-search-button' type='submit'><svg class='svg-icon-24-button' id='search-button-top' transform='scale (-1, 1)' transform-origin='center' viewBox='0 0 24 24'><path d='M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/><path d='M0 0h24v24H0z' fill='none'/></svg></button>
+  <span><input class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' placeholder='Search' title='Search' type='text'/></span>
+  <button aria-label='Search' class='gsc-search-button' type='submit'><svg class='svg-icon-24-button' id='search-button-top' transform='scale (-1, 1)' transform-origin='center' viewBox='0 0 24 24'><path d='M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/><path d='M0 0h24v24H0z' fill='none'/></svg></button>
 </form> 
 
                       
                     </div>           
               
-                     <a aria-controls='drawer-name' aria-expanded='false' class='link-24-button hamburger' data-drawer-trigger='' href='#'>
+                     <a aria-controls='drawer-name' aria-expanded='false' aria-label='Show navigation menu' class='link-24-button hamburger' data-drawer-trigger='' href='#'>
                        <svg class='svg-icon-24-button' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/></svg>
               		</a>
                   
@@ -1057,47 +1063,6 @@ form.search-box-top {
     </div>
     <div class='drawer__content'>  
       <b:section class='sidebar_nav' id='sidebar_nav' showaddelement='yes'>
-          <b:widget id='BlogSearch1' locked='false' title='Search This Blog' type='BlogSearch' version='1'>
-            <b:includable id='main'>
-				<!-- only display title if it's non-empty -->
-				<b:if cond='data:title != &quot;&quot;'>
-					<h2 class='title'>
-						<data:title/>
-					</h2>
-				</b:if>
-				<div class='widget-content'>
-                    <style>
-                      .gsc-input input[type=text] {
-                          float: right;
-                          padding: 6px;
-                          outline: 0;
-                          border-width: 0 0 2px;
-  						  border-color: black
-                          font-size: 17px;
-                        }
-                      .gsc-search-button { width: 24px; height: 24px; }
-                      .gsc-search-button input[type=&quot;submit&quot;] { display: none;}
-                    </style>
-					<div expr:id='data:widget.instanceId + &quot;_form&quot;'>
-						<form class='gsc-search-box' expr:action='data:blog.searchUrl'>
-							<b:attr cond='not data:view.isPreview' name='target' value='_top'/>
-							<table cellpadding='0' cellspacing='0' class='gsc-search-box'>
-								<tbody>
-									<tr>
-										<td class='gsc-input'>
-											<input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' placeholder='Search..' size='10' title='search' type='text'/>
-										</td>
-										<td class='gsc-search-button'>
-											<label><input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/><svg class='svg-icon-24-button' viewBox='0 0 24 24'><path d='M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/><path d='M0 0h24v24H0z' fill='none'/></svg></label>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</form>
-					</div>
-				</div>
-			</b:includable>
-          </b:widget>
           <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
             <b:widget-settings>
               <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
@@ -1155,9 +1120,63 @@ form.search-box-top {
 						</b:loop>
 					</b:if>
 				</div>
+              
+              
+                    <h2>test</h2>      
+<ul class='test'>
+     <b:loop index='i' values='data:labels' var='label'>
+        <b:if cond='data:label.name contains &quot;::&quot;'> <!--  or data:label.name contains &quot;@&quot;' -->
+          <a expr:href='data:label.url' rel='tag'>
+            <li class='level2'><data:label.name/></li>
+          </a>
+        <b:else/>
+                 <b:if cond='data:label.name contains &quot;:&quot;'>
+                 <li class='level1'><data:label.name/></li>
+                 </b:if>
+        </b:if>
+
+    </b:loop>
+              </ul>              
+    <style>
+
+      .ttest li::first-letter {
+  		visibility:hidden;
+}
+      
+      
+li.level1, li.level2 {
+    position: relative;
+    background-color: white;
+}
+      
+li.level1:before {
+    content: &quot;:&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: white;
+}
+      
+li.level2:before {
+    content: &quot;::&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: white;
+}
+      
+              </style>
 			</b:includable>
           </b:widget>
         </b:section>
+      
+      
+
+      
+      
+      
         </div> 
   </div> 
   
@@ -1392,7 +1411,7 @@ drawer();
     margin-top: .5em;
 
     clear: both;
-    font: 600 14px Open Sans, sans-serif;
+    font: 400 14px Open Sans, sans-serif;
     padding-top: 2em;
 } 
 
