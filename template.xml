@@ -11,7 +11,10 @@
 		<meta content='' property='og:type'/>
 		<meta content='' property='og:url'/>
 		<meta content='' property='og:image'/>
+		<meta content=' ' name='twitter:card'/>
+		<meta content=' ' name='twitter:image:alt'/>  
   
+        <!--link rel="icon" type="image/svg+xml" href="/favicon.svg"-->  
 		<meta content='#AFEEEE' name='theme-color'/>
 		<b:skin><![CDATA[
         /* basic layout specific css */
@@ -30,9 +33,11 @@ header, footer {
   background-color: white; //#ccffff;
 }
 
+
 article {
   background-color: #ccffcc;
 }
+
 aside, .drawer {
   background-color: #ffffcc;
 }
@@ -59,6 +64,16 @@ body {
 
 #content {
   flex: 1 0 auto;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 1fr min(65ch, calc(100% - 48px)) 1fr;
+  grid-column-gap: 24px;
+}
+
+#content > * {
+  grid-column: 2;
 }
 
 footer {
@@ -127,9 +142,8 @@ background: #F8F9F9;
         header .category-separator {
             margin-left: 10px;
             margin-right: 10px;
-            font-size: 24px;
-            user-select: none;
-            margin-bottom: 4px;
+
+            
         }
 
 
@@ -148,6 +162,7 @@ background: #F8F9F9;
             filter: brightness(0) saturate(100%) invert(41%) sepia(3%) saturate(0%) hue-rotate(162deg) brightness(100%) contrast(83%); /* #6d6d6d */
             //display: none;
             //background-image: none !important;
+            min-width: 133px;
         }
 
         .logo-mark {
@@ -157,6 +172,7 @@ background: #F8F9F9;
             height: 0;
             padding: 0;
             filter: brightness(0) saturate(100%) invert(65%) sepia(25%) saturate(1129%) hue-rotate(314deg) brightness(103%) contrast(90%); /* #f28c83 */
+            min-width: 40px;
         }
 
         header .small {
@@ -169,6 +185,10 @@ background: #F8F9F9;
         header .title-text {
             display: flex;
             vertical-align: middle;
+		}
+
+		.header-title {
+			margin-bottom: 4px;
         }
 
         header .title-text {
@@ -179,7 +199,7 @@ background: #F8F9F9;
             //font-weight: bold;
             color: var(--title-color);
             //display: inline;
-            line-height: 24px;
+            //line-height: 24px;
 			white-space: normal;
         }
 
@@ -196,6 +216,12 @@ background: #F8F9F9;
 
             display: none;
         }
+
+
+
+.title-separator {
+  border-left: 1px solid black;
+}
 
 ]]></b:skin>
   
@@ -235,7 +261,7 @@ background: #F8F9F9;
                 <div class='logo logo-type' onclick='location.href=&apos;https://kimono.gallery&apos;;'/>
                 <div class='title-text'>
                     <a aria-label='Gallery homepage' href='https://kimono.gallery'><span class='logo logo-type-text'>Tokyo Wonder</span></a>
-                    <div class='title-separator'>|</div>
+                    <div class='title-separator'/>
                     <div class='header-title'><b:tag aria-label='Gallery homepage' cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
 					<data:blog.title/></b:tag></div>
                 </div>                
